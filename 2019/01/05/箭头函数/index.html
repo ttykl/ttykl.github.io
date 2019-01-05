@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="John Doe">
+    
+    
+    
+    
+    
+    
+    <title>箭头函数 | 后宫佳丽。</title>
+    <link href="”https://bmmanmyt.github.io“" rel="”prefetch”">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1546605635149&amp;di=4aed5cb2e6e60e43932c49a4d8ad77dd&amp;imgtype=0&amp;src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201412%2F31%2F20141231180950_LmB3U.jpeg');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/http:/q2.qlogo.cn/headimg_dl?dst_uin=1363931801&spec=100'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head></html>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://bmmanmyt.github.io">
+                
+                <!-- 这里background直接使用logo_image(url) -->
+                <style>
+
+                </style>
+                    
+                <div class="navbar-brand"></div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/categories">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                </li>
+                
+                
+                
+                
+                
+                <li class="">
+                    <a href="/tags">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://bmmanmyt.github.io">后宫佳丽。</a>
+        >
+        <span>箭头函数</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/01/05/箭头函数/">箭头函数</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-01-05
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2019/01/05/箭头函数/">箭头函数</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-01-05
+            </p>
+            <p>
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;pre style=<span class="string">"color:red"</span>&gt;</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">                        <span class="comment">//</span></span><br><span class="line">            \\         <span class="comment">//</span></span><br><span class="line">             \\       <span class="comment">//</span></span><br><span class="line">      ##DDDDDDDDDDDDDDDDDDDDDD##</span><br><span class="line">      ## DDDDDDDDDDDDDDDDDDDD ##   ________   ___   ___        ___   ________   ___   ___        ___</span><br><span class="line">      ## hh                hh ##   |\   __  \ |\  \ |\  \      |\  \ |\   __  \ |\  \ |\  \      |\  \</span><br><span class="line">      ## hh    //    \\    hh ##   \ \  \|\ /_\ \  \\ \  \     \ \  \\ \  \|\ /_\ \  \\ \  \     \ \  \</span><br><span class="line">      ## hh   //      \\   hh ##    \ \   __  \\ \  \\ \  \     \ \  \\ \   __  \\ \  \\ \  \     \ \  \</span><br><span class="line">      ## hh                hh ##     \ \  \|\  \\ \  \\ \  \____ \ \  \\ \  \|\  \\ \  \\ \  \____ \ \  \</span><br><span class="line">      ## hh      wwww      hh ##      \ \_______\\ \__\\ \_______\\ \__\\ \_______\\ \__\\ \_______\\ \__\</span><br><span class="line">      ## hh                hh ##       \|_______| \|__| \|_______| \|__| \|_______| \|__| \|_______| \|__|</span><br><span class="line">      ## MMMMMMMMMMMMMMMMMMMM ##</span><br><span class="line">      ##MMMMMMMMMMMMMMMMMMMMMM##                             Release 2.5.1. Powered by jinkela-core 2.3.1.</span><br><span class="line">          \/            \/    </span><br><span class="line">        &lt;<span class="regexp">/pre&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    &lt;script&gt;</span></span><br><span class="line"><span class="regexp">        /</span>*   **************************************************************** *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">        /</span>*</span><br><span class="line">                    <span class="keyword">var</span>   声明的变量会被提升，多次声明时会被覆盖。</span><br><span class="line">                    <span class="keyword">let</span>   声明的变量不会被提升，不可以多次声明，作用于只存在于块。 *<span class="regexp">/</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        /</span>*   **************************************************************** *<span class="regexp">/</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 使用const可以声明常量，常量不可以被更改。</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        /</span>*   **************************************************************** *<span class="regexp">/</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 函数参数的默认值，当函数不传入参数时显示的默认值</span></span><br><span class="line"><span class="regexp">        function MY(name = "李四", age = "20") &#123;</span></span><br><span class="line"><span class="regexp">            return name + age</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">        console.log(MY())</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        console.log(MY("王五", "15"))</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        /</span>*   **************************************************************** *<span class="regexp">/</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 箭头函数</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 箭头函数中没有this，this的指向是windows</span></span><br><span class="line"><span class="regexp">        var num = (a, b) =&gt; a + b    /</span><span class="regexp">/有两个参数</span></span><br><span class="line"><span class="regexp">        console.log(num(3, 4))</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        var a = () =&gt; "hi"         /</span><span class="regexp">/没有参数</span></span><br><span class="line"><span class="regexp">        console.log(a())</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        var b = name =&gt; name       /</span><span class="regexp">/只有一个参数</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        console.log(b("渣男"))</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        var num2 = (c, d) =&gt; c &gt; d ? c : d   /</span><span class="regexp">/两个数比较大小</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        console.log(num2(5, 7))</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        /</span>*   **************************************************************** *<span class="regexp">/</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/剩余操作符(...)</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/1.用于传入参数时不知道参数个数。</span></span><br><span class="line"><span class="regexp">        var e = (...f) =&gt; f</span></span><br><span class="line"><span class="regexp">        console.log(e(1, 2, 3, 4, 5, 6, 7, 8, 9))</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/测试，乘 加：</span></span><br><span class="line"><span class="regexp">        var resule = (operator, ...numall) =&gt; &#123;</span></span><br><span class="line"><span class="regexp">            if (operator === "+") &#123;</span></span><br><span class="line"><span class="regexp">                let resule1 = 0</span></span><br><span class="line"><span class="regexp">                for (let i = 0; i &lt; numall.length; i++) &#123;</span></span><br><span class="line"><span class="regexp">                    resule1 += numall[i]</span></span><br><span class="line"><span class="regexp">                &#125;</span></span><br><span class="line"><span class="regexp">                return resule1</span></span><br><span class="line"><span class="regexp">            &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            if (operator === "*") &#123;</span></span><br><span class="line"><span class="regexp">                let resule1 = 1</span></span><br><span class="line"><span class="regexp">                for (let i = 0; i &lt; numall.length; i++) &#123;</span></span><br><span class="line"><span class="regexp">                    resule1 *= numall[i]</span></span><br><span class="line"><span class="regexp">                &#125;</span></span><br><span class="line"><span class="regexp">                return resule1</span></span><br><span class="line"><span class="regexp">            &#125;</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">        console.log(resule("+", 1, 2, 3, 4))</span></span><br><span class="line"><span class="regexp">        console.log(resule("*", 1, 2, 3, 4))</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/2.用于展开数组</span></span><br><span class="line"><span class="regexp">        let arr1 = [1, 2, 3, 4, 5, 67, 8, 9, 7]</span></span><br><span class="line"><span class="regexp">        console.log(...arr1)</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 3.复制数组</span></span><br><span class="line"><span class="regexp">        let arr2 = [...arr1]</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        console.log(arr2)</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        /</span>*   **************************************************************** *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 模板字面量</span></span><br><span class="line"><span class="regexp">        console.log(`</span></span><br><span class="line"><span class="regexp">                ---------------</span></span><br><span class="line"><span class="regexp">                ---------------</span></span><br><span class="line"><span class="regexp">                      ||    </span></span><br><span class="line"><span class="regexp">                      ||   </span></span><br><span class="line"><span class="regexp">                ---------------</span></span><br><span class="line"><span class="regexp">                ---------------</span></span><br><span class="line"><span class="regexp">                      ||     </span></span><br><span class="line"><span class="regexp">                      || </span></span><br><span class="line"><span class="regexp">                ---------------</span></span><br><span class="line"><span class="regexp">                ---------------</span></span><br><span class="line"><span class="regexp">         中间拼接变量时用$()</span></span><br><span class="line"><span class="regexp">         `)</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        console.log(`                        /</span><span class="regexp">/</span></span><br><span class="line"><span class="regexp">            \\         /</span><span class="regexp">/</span></span><br><span class="line"><span class="regexp">             \\       /</span><span class="regexp">/</span></span><br><span class="line"><span class="regexp">      ##DDDDDDDDDDDDDDDDDDDDDD##</span></span><br><span class="line"><span class="regexp">      ## DDDDDDDDDDDDDDDDDDDD ##   ________   ___   ___        ___   ________   ___   ___        ___</span></span><br><span class="line"><span class="regexp">      ## hh                hh ##   |\   __  \ |\  \ |\  \      |\  \ |\   __  \ |\  \ |\  \      |\  \</span></span><br><span class="line"><span class="regexp">      ## hh    /</span><span class="regexp">/    \\    hh ##   \ \  \|\ /</span>_\ \  \\ \  \     \ \  \\ \  \|\ /_\ \  \\ \  \     \ \  \</span><br><span class="line">      ## hh   //      \\   hh ##    \ \   __  \\ \  \\ \  \     \ \  \\ \   __  \\ \  \\ \  \     \ \  \</span><br><span class="line">      ## hh                hh ##     \ \  \|\  \\ \  \\ \  \____ \ \  \\ \  \|\  \\ \  \\ \  \____ \ \  \</span><br><span class="line">      ## hh      wwww      hh ##      \ \_______\\ \__\\ \_______\\ \__\\ \_______\\ \__\\ \_______\\ \__\</span><br><span class="line">      ## hh                hh ##       \|_______| \|__| \|_______| \|__| \|_______| \|__| \|_______| \|__|</span><br><span class="line">      ## MMMMMMMMMMMMMMMMMMMM ##</span><br><span class="line">      ##MMMMMMMMMMMMMMMMMMMMMM##                             Release 2.5.1. Powered by jinkela-core 2.3.1.</span><br><span class="line">          \/            \/    <span class="string">`)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        /*   **************************************************************** */</span></span><br><span class="line"><span class="string">        //  对象属性的简写</span></span><br><span class="line"><span class="string">        // 对象的属性名字==属性值的时候，可以只写一个。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        let g = "渣男"</span></span><br><span class="line"><span class="string">        var obj = &#123;</span></span><br><span class="line"><span class="string">            g</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        console.log(obj.g)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        /*   **************************************************************** */</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        //数据解构</span></span><br><span class="line"><span class="string">        let munber = [1, 2, 3, 4, 56, 7, 8, 9, 5]</span></span><br><span class="line"><span class="string">        let [one, ...two] = munber</span></span><br><span class="line"><span class="string">        console.log(one, two)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        let munber2 = [1, 2, 3, [4, 56, 7], 8, 9, 5]</span></span><br><span class="line"><span class="string">        let [, , , [thiree]] = munber2</span></span><br><span class="line"><span class="string">        console.log(thiree)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        /*   **************************************************************** */</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        //对象解构</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        let h = &#123;</span></span><br><span class="line"><span class="string">            name: "mengmeng"</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        let &#123; name &#125; = h</span></span><br><span class="line"><span class="string">        console.log(name)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br></pre></td></tr></table></figure>
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get" action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            John Doe
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="http://q2.qlogo.cn/headimg_dl?dst_uin=1363931801&spec=100" width="140" height="140" alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/05/箭头函数/">箭头函数</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/04/JavaScript-简答题/">JavaScript 简答题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/04/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/04/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/04/JavaScript-简答题/">JavaScript 简答题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/05/箭头函数/">箭头函数</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2019/01/05/箭头函数/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2019/01/05/箭头函数/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2019/01/05/箭头函数/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="www.baidu.com" target="_blank">百度一下</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1363931801&amp;site=qq&amp;menu=yes" target="_blank">QQ</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2019 John Doe Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+</html>
