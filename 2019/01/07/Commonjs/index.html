@@ -10,7 +10,7 @@
     
     
     
-    <title>Hello World | 后宫佳丽。</title>
+    <title>Commonjs | 后宫佳丽。</title>
     <link href="”https://bmmanmyt.github.io“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -133,13 +133,21 @@
                         
                         
                         <li>
+                            <a href="/tags/模块化/">模块化</a>
+                        </li>
+                        
+                        <li>
                             <a href="/tags/node-js/">node.js</a>
                         </li>
                         
                         <li>
-                            <a href="/tags/JavaScript/">JavaScript</a>
+                            <a href="/tags/noodjs/">noodjs</a>
                         </li>
                         
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
                         
                         
                     </ul>
@@ -177,19 +185,26 @@
         <i class="fa fa-home"></i>
         <a href="https://bmmanmyt.github.io">后宫佳丽。</a>
         >
-        <span>Hello World</span>
+        <span>Commonjs</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/01/04/hello-world/">Hello World</a>
+                <a href="/2019/01/07/Commonjs/">Commonjs</a>
             </h1>
         </div>
         <div class="tag-article">
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-01-04
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/模块化/">模块化</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-01-07
             </span>
             
         </div>
@@ -199,32 +214,44 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2019/01/04/hello-world/">Hello World</a>
+                    <a href="/2019/01/07/Commonjs/">Commonjs</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-01-04
+                <i class="fa fa-calendar"></i> 2019-01-07
             </p>
             <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/模块化/">模块化</a>
+                
                 
                 
             </p>
         </center>
     </div>
     <div class="content-article">
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h4 id="exports-导出"><a href="#exports-导出" class="headerlink" title="exports  导出"></a>exports  导出</h4><h4 id="import-导入"><a href="#import-导入" class="headerlink" title="import   导入"></a>import   导入</h4><p>每个模块内部都有一个module对象，代表当前对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    exports.multiply = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 * num2;</span><br><span class="line">&#125;</span><br><span class="line">exports.divide = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 / num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="module变量："><a href="#module变量：" class="headerlink" title="module变量："></a>module变量：</h4><p> 每个模块内部都有一个module对象，代表着当前模块。它有以下属性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">module</span>.id)    <span class="comment">// 模块的标识符，通常是带有绝对路径的模块文件名</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="built_in">module</span>.filename)    <span class="comment">// 模块文件名，带有绝对路径</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="built_in">module</span>.parent)    <span class="comment">// 调用该模块的模块</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="built_in">module</span>.chilren)    <span class="comment">// 该模块调用的模块</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="built_in">module</span>.exports)    <span class="comment">// 表示模块对外导出的值</span></span><br></pre></td></tr></table></figure>
+<h4 id="exports变量："><a href="#exports变量：" class="headerlink" title="exports变量："></a>exports变量：</h4><p> 为了方便，Node为每个模块提供了exports变量，指向module.exports，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> 等同于：<span class="keyword">var</span> exports = <span class="built_in">module</span>.exports（Node隐式做了这个赋值）</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(exports)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="keyword">let</span> multiply = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> num1 * num2;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">let</span> divide = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> num1 / num2;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="built_in">module</span>.exports = &#123;&#125;</span><br><span class="line"> <span class="keyword">var</span> exports = <span class="built_in">module</span>.exports</span><br></pre></td></tr></table></figure>
+<h4 id="如果改变了-module-exports，但还想使用-exports-xxx-的方法暴露一些东西，"><a href="#如果改变了-module-exports，但还想使用-exports-xxx-的方法暴露一些东西，" class="headerlink" title="如果改变了 module.exports，但还想使用 exports.xxx 的方法暴露一些东西，"></a>如果改变了 module.exports，但还想使用 exports.xxx 的方法暴露一些东西，</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> 我们需要让exports重新指向<span class="built_in">module</span>.exports</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line">exports = <span class="built_in">module</span>.exports;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 常见的写法：</span></span><br><span class="line">exports = <span class="built_in">module</span>.exports = &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 </article>
 
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = 'Commonjs'
+    }
+</script>
 
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
@@ -280,7 +307,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/07/node-js-第一天/">node.js    第一天</a>
+                    <a href="/2019/01/07/gulp/">gulp</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/npm管理器/">npm管理器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/Commonjs/">Commonjs</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/node-js-第一天/">node.js简单介绍</a>
                 </span>
             </li>
             
@@ -293,12 +338,6 @@
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/01/04/JavaScript-简答题/">JavaScript 简答题</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/01/04/hello-world/">Hello World</a>
                 </span>
             </li>
             
@@ -320,13 +359,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/04/hello-world/">Hello World</a>
+                    <a href="/2019/01/07/Commonjs/">Commonjs</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/07/node-js-第一天/">node.js    第一天</a>
+                    <a href="/2019/01/07/node-js-第一天/">node.js简单介绍</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/gulp/">gulp</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/npm管理器/">npm管理器</a>
                 </span>
             </li>
             
@@ -353,17 +404,17 @@
 
                 
                 <li>
-                    <a href="/2019/01/04/hello-world/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/01/07/Commonjs/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/01/04/hello-world/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/01/07/Commonjs/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/01/04/hello-world/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/01/07/Commonjs/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -371,9 +422,13 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/node-js/" style="font-size: 13.088426856256836px;" class="tag-cloud-link">node.js</a>
+    <a href="/tags/模块化/" style="font-size: 19.7359699192877px;" class="tag-cloud-link">模块化</a>
     
-    <a href="/tags/JavaScript/" style="font-size: 13.862353593703018px;" class="tag-cloud-link">JavaScript</a>
+    <a href="/tags/node-js/" style="font-size: 8.325373569865135px;" class="tag-cloud-link">node.js</a>
+    
+    <a href="/tags/noodjs/" style="font-size: 18.9834411620913px;" class="tag-cloud-link">noodjs</a>
+    
+    <a href="/tags/JavaScript/" style="font-size: 13.056340637109924px;" class="tag-cloud-link">JavaScript</a>
     
 </div>
                 
@@ -465,5 +520,27 @@
 <script src="/js/blog.js"></script>
 
 
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Mon Jan 07 2019 20:39:31 GMT+0800'
+      window.commentConfig.owner = ''
+      window.commentConfig.repo = ''
+      window.commentConfig.client_id = 'ebab393eaaa50c75195d'
+      window.commentConfig.client_secret = '8322437883a32ff1ae6336c91fb170e9319ac2f0'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Mon Jan 07 2019 20:39:31 GMT+0800',
+        owner: '',
+        repo: '',
+        client_id: 'ebab393eaaa50c75195d',
+        client_secret: '8322437883a32ff1ae6336c91fb170e9319ac2f0',
+        redirect_uri: ''
+      }
+    }
+</script>
+<script src="/js/comment/gitment.js"></script>
 
 </html>

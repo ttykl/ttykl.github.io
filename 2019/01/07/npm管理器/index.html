@@ -10,7 +10,7 @@
     
     
     
-    <title>archive_a | 后宫佳丽。</title>
+    <title>npm管理器 | 后宫佳丽。</title>
     <link href="”https://bmmanmyt.github.io“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -94,7 +94,7 @@
                 
                 
                 
-                <li class="current">
+                <li class="">
                     <a href="/archives">
                         <i class="fa fa-归档"></i>归档
                     </a>
@@ -179,19 +179,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-archive">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="https://bmmanmyt.github.io">后宫佳丽。</a>
         >
-        <span>归档</span>
+        <span>npm管理器</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/archives">归档</a>
+                <a href="/2019/01/07/npm管理器/">npm管理器</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/noodjs/">noodjs</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-01-07
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -199,47 +214,58 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/archives">归档</a>
+                    <a href="/2019/01/07/npm管理器/">npm管理器</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-01-07
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/noodjs/">noodjs</a>
+                
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        
-        
-            <h1 style="font-size: 24px; margin-top: 40px;">2019年</h1>
-            
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-             
-             
-                        <a href="/2019/01/07/gulp/">gulp</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/07/npm管理器/">npm管理器</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/07/Commonjs/">Commonjs</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/07/node-js-第一天/">node.js简单介绍</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/05/箭头函数/">箭头函数</a>
-                        <br>
-            
-             
-                        <a href="/2019/01/04/JavaScript-简答题/">JavaScript 简答题</a>
-                        <br>
-            
-                    </div>
-        
+    <div class="content-article">
+        <h4 id="为了安装第三包，需要用nom管理器。"><a href="#为了安装第三包，需要用nom管理器。" class="headerlink" title="为了安装第三包，需要用nom管理器。"></a>为了安装第三包，需要用nom管理器。</h4><p>第三方平台下载 : <a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a></p>
+<h4 id="安装npm"><a href="#安装npm" class="headerlink" title="安装npm :"></a>安装npm :</h4><pre><code>npm init 
+创建之后，在package.json中加入private：true代表设置为私人的包，并不会公众化。
+</code></pre><h4 id="安装第三方包"><a href="#安装第三方包" class="headerlink" title="安装第三方包"></a>安装第三方包</h4><pre><code>npm install --global http-server 
+安装全局http命令。
+默认为最新版本，在server后@可设置版本号。
+npm uninstall --global http-server
+卸载全局http命令
+</code></pre><h4 id="全局安装gulp"><a href="#全局安装gulp" class="headerlink" title="全局安装gulp"></a>全局安装gulp</h4><pre><code>npm install --global gulp
+</code></pre><h4 id="安装本地包"><a href="#安装本地包" class="headerlink" title="安装本地包"></a>安装本地包</h4><pre><code>npm install gulp
+--save-dev/-D   适用于开发阶段的包
+--save       适用于开发和产品阶段
+
+npm list 所有安装的包
+</code></pre><h4 id="gulp插件"><a href="#gulp插件" class="headerlink" title="gulp插件"></a>gulp插件</h4><h5 id="解决gulp服务器在国外下载慢的问题。"><a href="#解决gulp服务器在国外下载慢的问题。" class="headerlink" title="解决gulp服务器在国外下载慢的问题。"></a>解决gulp服务器在国外下载慢的问题。</h5><h5 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h5><pre><code>淘宝定制命令行工具
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+</code></pre><h5 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h5><pre><code>修改npm的下载仓库为淘宝镜像
+npm config set registry http://registry.npm.taobao.org/
+如果要发布自己的镜像需要修改回来
+npm config set registry https://registry.npmjs.org/
+</code></pre>
     </div>
 </article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = 'npm管理器'
+    }
+</script>
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -391,17 +417,17 @@
 
                 
                 <li>
-                    <a href="/archives/2019/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/01/07/npm管理器/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/archives/2019/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/01/07/npm管理器/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/archives/2019/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/01/07/npm管理器/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -409,13 +435,13 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/模块化/" style="font-size: 14.361694540791465px;" class="tag-cloud-link">模块化</a>
+    <a href="/tags/模块化/" style="font-size: 15.857939827498985px;" class="tag-cloud-link">模块化</a>
     
-    <a href="/tags/node-js/" style="font-size: 16.575395431154px;" class="tag-cloud-link">node.js</a>
+    <a href="/tags/node-js/" style="font-size: 18.885240705059147px;" class="tag-cloud-link">node.js</a>
     
-    <a href="/tags/noodjs/" style="font-size: 17.02249633239276px;" class="tag-cloud-link">noodjs</a>
+    <a href="/tags/noodjs/" style="font-size: 13.159135438141554px;" class="tag-cloud-link">noodjs</a>
     
-    <a href="/tags/JavaScript/" style="font-size: 12.227270393256813px;" class="tag-cloud-link">JavaScript</a>
+    <a href="/tags/JavaScript/" style="font-size: 15.635900210761715px;" class="tag-cloud-link">JavaScript</a>
     
 </div>
                 
@@ -511,7 +537,7 @@
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = ''
+      window.commentConfig.id = 'Mon Jan 07 2019 20:48:26 GMT+0800'
       window.commentConfig.owner = ''
       window.commentConfig.repo = ''
       window.commentConfig.client_id = 'ebab393eaaa50c75195d'
@@ -519,7 +545,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: '',
+      	id: 'Mon Jan 07 2019 20:48:26 GMT+0800',
         owner: '',
         repo: '',
         client_id: 'ebab393eaaa50c75195d',

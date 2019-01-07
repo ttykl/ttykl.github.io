@@ -133,13 +133,21 @@
                         
                         
                         <li>
+                            <a href="/tags/模块化/">模块化</a>
+                        </li>
+                        
+                        <li>
                             <a href="/tags/node-js/">node.js</a>
                         </li>
                         
                         <li>
-                            <a href="/tags/JavaScript/">JavaScript</a>
+                            <a href="/tags/noodjs/">noodjs</a>
                         </li>
                         
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
                         
                         
                     </ul>
@@ -203,7 +211,7 @@
     // 获取每页的页码数
     var pageSize = '10'
     var useLeancloud = ''
-    var useComment = ('false' === 'true')
+    var useComment = ('true' === 'true')
     $.getJSON('/content.json', function (json) {
       $('#search-breadcrumb').append(`搜索'${s}'的结果`)
       var result = getArticles(s, 'posts', json).concat(getArticles(s, 'pages', json))
@@ -227,7 +235,7 @@
       	var [month, day] = article.date.split('-')
         ''
         ''
-        var defaultPreview = '/imgs/preview/preview1.jpg'
+        var defaultPreview = '/imgs/preview/preview4.jpg'
         var preview = article.preview ? article.preview : defaultPreview
         var path = '/' + article.path
         resultList.append(`<div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
@@ -435,7 +443,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/07/node-js-第一天/">node.js    第一天</a>
+                    <a href="/2019/01/07/gulp/">gulp</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/npm管理器/">npm管理器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/Commonjs/">Commonjs</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/node-js-第一天/">node.js简单介绍</a>
                 </span>
             </li>
             
@@ -448,12 +474,6 @@
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/01/04/JavaScript-简答题/">JavaScript 简答题</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/01/04/hello-world/">Hello World</a>
                 </span>
             </li>
             
@@ -475,13 +495,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/04/hello-world/">Hello World</a>
+                    <a href="/2019/01/07/Commonjs/">Commonjs</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/07/node-js-第一天/">node.js    第一天</a>
+                    <a href="/2019/01/07/node-js-第一天/">node.js简单介绍</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/gulp/">gulp</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/npm管理器/">npm管理器</a>
                 </span>
             </li>
             
@@ -526,9 +558,13 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/node-js/" style="font-size: 14.97975331808913px;" class="tag-cloud-link">node.js</a>
+    <a href="/tags/模块化/" style="font-size: 10.644285211790432px;" class="tag-cloud-link">模块化</a>
     
-    <a href="/tags/JavaScript/" style="font-size: 10.036230515252676px;" class="tag-cloud-link">JavaScript</a>
+    <a href="/tags/node-js/" style="font-size: 13.92990915605397px;" class="tag-cloud-link">node.js</a>
+    
+    <a href="/tags/noodjs/" style="font-size: 10.65866144643088px;" class="tag-cloud-link">noodjs</a>
+    
+    <a href="/tags/JavaScript/" style="font-size: 19.179583551715723px;" class="tag-cloud-link">JavaScript</a>
     
 </div>
                 
@@ -620,5 +656,27 @@
 <script src="/js/blog.js"></script>
 
 
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Fri Jan 04 2019 16:43:22 GMT+0800'
+      window.commentConfig.owner = ''
+      window.commentConfig.repo = ''
+      window.commentConfig.client_id = 'ebab393eaaa50c75195d'
+      window.commentConfig.client_secret = '8322437883a32ff1ae6336c91fb170e9319ac2f0'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Fri Jan 04 2019 16:43:22 GMT+0800',
+        owner: '',
+        repo: '',
+        client_id: 'ebab393eaaa50c75195d',
+        client_secret: '8322437883a32ff1ae6336c91fb170e9319ac2f0',
+        redirect_uri: ''
+      }
+    }
+</script>
+<script src="/js/comment/gitment.js"></script>
 
 </html>
