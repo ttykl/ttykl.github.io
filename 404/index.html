@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="John Doe">
+    <meta name="author" content="who is me?">
     
     
     
@@ -25,7 +25,7 @@
         @media (max-width: 768px) {
             body {
                 background-color: #f0f0f0;
-                background: url('/imgs/https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1546605635149&amp;di=4aed5cb2e6e60e43932c49a4d8ad77dd&amp;imgtype=0&amp;src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201412%2F31%2F20141231180950_LmB3U.jpeg');
+                background: url('/imgs/smallbg.jpg');
                 background-attachment: fixed;
             }
         }
@@ -66,12 +66,18 @@
             </button>
             <a href="https://bmmanmyt.github.io">
                 
-                <!-- 这里background直接使用logo_image(url) -->
                 <style>
-
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
                 </style>
-                    
-                <div class="navbar-brand"></div>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">シューマン</div>
                 
             </a>
         </div>
@@ -89,27 +95,57 @@
                 
                 <li class="">
                     <a href="/archives">
-                        <i class="fa fa-archive"></i>归档
+                        <i class="fa fa-归档"></i>归档
                     </a>
                 </li>
                 
                 
                 
                 
-                <li class="">
-                    <a href="/categories">
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
                         <i class="fa fa-list"></i>分类
                     </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/node-js/">node.js</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
                 </li>
                 
                 
                 
                 
                 
-                <li class="">
-                    <a href="/tags">
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
                         <i class="fa fa-tags"></i>标签
                     </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/node-js/">node.js</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/JavaScript/">JavaScript</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/计算程序/">计算程序</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
                 </li>
                 
                 
@@ -118,6 +154,14 @@
                 <li class="">
                     <a href="/about">
                         <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/calculation/calculation.html">
+                        <i class="fa fa-calculator"></i>计算单数
                     </a>
                 </li>
                 
@@ -152,7 +196,7 @@
     <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
         <div class="panel-heading" style="text-align: center">
             <i class="fa fa-quote-left"></i>
-            John Doe
+            who is me?
             <i class="fa fa-quote-right"></i>
         </div>
         <div class="author-panel text-center">
@@ -186,6 +230,18 @@
             <i class="fa fa-chevron-circle-up panel-toggle"></i>
         </div>
         <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/单数计算/">单数计算</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/node-js-第一天/">node.js    第一天</a>
+                </span>
+            </li>
             
             <li class="list-group-item">
                 <span class="post-title">
@@ -224,6 +280,18 @@
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/01/04/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/node-js-第一天/">node.js    第一天</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/单数计算/">单数计算</a>
                 </span>
             </li>
             
@@ -268,6 +336,12 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
+    <a href="/tags/node-js/" style="font-size: 14.968323166716157px;" class="tag-cloud-link">node.js</a>
+    
+    <a href="/tags/JavaScript/" style="font-size: 10.776485821710304px;" class="tag-cloud-link">JavaScript</a>
+    
+    <a href="/tags/计算程序/" style="font-size: 13.978491723413752px;" class="tag-cloud-link">计算程序</a>
+    
 </div>
                 
                 
@@ -298,7 +372,7 @@
     </div>
     <footer id="gal-footer">
     <div class="container">
-        Copyright © 2019 John Doe Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+        Copyright © 2019 who is me? Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
 </footer>
 
@@ -349,7 +423,7 @@
 </script>
 <script>
     window.slideConfig = {
-      prefix: '/imgs/slide/background',
+      prefix: 'http://pkxw6346q.bkt.clouddn.com/background',
       ext: 'jpg',
       maxCount: '6'
     }
