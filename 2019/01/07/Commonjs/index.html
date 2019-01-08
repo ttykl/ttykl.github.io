@@ -137,7 +137,7 @@
                         </li>
                         
                         <li>
-                            <a href="/tags/node-js/">node.js</a>
+                            <a href="/tags/nood-js/">nood.js</a>
                         </li>
                         
                         <li>
@@ -232,7 +232,7 @@
         </center>
     </div>
     <div class="content-article">
-        <h4 id="exports-导出"><a href="#exports-导出" class="headerlink" title="exports  导出"></a>exports  导出</h4><h4 id="import-导入"><a href="#import-导入" class="headerlink" title="import   导入"></a>import   导入</h4><p>每个模块内部都有一个module对象，代表当前对象。</p>
+        <h3 id="Commonjs-Nood-js模块化规范"><a href="#Commonjs-Nood-js模块化规范" class="headerlink" title="Commonjs :Nood.js模块化规范"></a>Commonjs :Nood.js模块化规范</h3><h4 id="exports-导出"><a href="#exports-导出" class="headerlink" title="exports  导出"></a>exports  导出</h4><h4 id="require-导入"><a href="#require-导入" class="headerlink" title="require   导入"></a>require   导入</h4><p>每个模块内部都有一个module对象，代表当前对象。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    exports.multiply = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 * num2;</span><br><span class="line">&#125;</span><br><span class="line">exports.divide = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 / num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="module变量："><a href="#module变量：" class="headerlink" title="module变量："></a>module变量：</h4><p> 每个模块内部都有一个module对象，代表着当前模块。它有以下属性：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">module</span>.id)    <span class="comment">// 模块的标识符，通常是带有绝对路径的模块文件名</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="built_in">module</span>.filename)    <span class="comment">// 模块文件名，带有绝对路径</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="built_in">module</span>.parent)    <span class="comment">// 调用该模块的模块</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="built_in">module</span>.chilren)    <span class="comment">// 该模块调用的模块</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="built_in">module</span>.exports)    <span class="comment">// 表示模块对外导出的值</span></span><br></pre></td></tr></table></figure>
@@ -356,12 +356,6 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/07/node-js-第一天/">node.js简单介绍</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2019/01/07/gulp/">gulp</a>
                 </span>
             </li>
@@ -369,6 +363,12 @@
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/01/07/npm管理器/">npm管理器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/node-js-第一天/">node.js简单介绍</a>
                 </span>
             </li>
             
@@ -413,13 +413,15 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/模块化/" style="font-size: 15.262511073077906px;" class="tag-cloud-link">模块化</a>
+    <a href="/tags/模块化/" style="font-size: 8.662195824572901px;" class="tag-cloud-link">模块化</a>
     
-    <a href="/tags/node-js/" style="font-size: 9.927902587831252px;" class="tag-cloud-link">node.js</a>
+    <a href="/tags/nood-js/" style="font-size: 15.194794398704614px;" class="tag-cloud-link">nood.js</a>
     
-    <a href="/tags/noodjs/" style="font-size: 9.380728853421168px;" class="tag-cloud-link">noodjs</a>
+    <a href="/tags/noodjs/" style="font-size: 15.134904787312673px;" class="tag-cloud-link">noodjs</a>
     
-    <a href="/tags/JavaScript/" style="font-size: 12.885606230907008px;" class="tag-cloud-link">JavaScript</a>
+    <a href="/tags/node-js/" style="font-size: 19.478521819487277px;" class="tag-cloud-link">node.js</a>
+    
+    <a href="/tags/JavaScript/" style="font-size: 15.45927237007956px;" class="tag-cloud-link">JavaScript</a>
     
 </div>
                 

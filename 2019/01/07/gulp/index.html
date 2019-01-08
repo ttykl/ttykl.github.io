@@ -137,7 +137,7 @@
                         </li>
                         
                         <li>
-                            <a href="/tags/node-js/">node.js</a>
+                            <a href="/tags/nood-js/">nood.js</a>
                         </li>
                         
                         <li>
@@ -199,7 +199,7 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/noodjs/">noodjs</a>
+                <a href="/tags/nood-js/">nood.js</a>
                 
             </span>
             
@@ -224,7 +224,7 @@
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/noodjs/">noodjs</a>
+                <a href="/tags/nood-js/">nood.js</a>
                 
                 
                 
@@ -232,7 +232,7 @@
         </center>
     </div>
     <div class="content-article">
-        <h4 id="初始化项目，生成package-json文件"><a href="#初始化项目，生成package-json文件" class="headerlink" title="初始化项目，生成package.json文件"></a>初始化项目，生成package.json文件</h4><pre><code>npm init
+        <h3 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h3><h4 id="初始化项目，生成package-json文件"><a href="#初始化项目，生成package-json文件" class="headerlink" title="初始化项目，生成package.json文件"></a>初始化项目，生成package.json文件</h4><pre><code>npm init
 </code></pre><h4 id="全局安装gulp命令行工具，只需要安装一次，在任何目录都能使用gulp命令"><a href="#全局安装gulp命令行工具，只需要安装一次，在任何目录都能使用gulp命令" class="headerlink" title="全局安装gulp命令行工具，只需要安装一次，在任何目录都能使用gulp命令"></a>全局安装gulp命令行工具，只需要安装一次，在任何目录都能使用gulp命令</h4><pre><code>npm install gulp-cli --global
 </code></pre><h4 id="本地安装gulp包，提供gulp的API方法，例如，task-，src-，dest-，watch-方法"><a href="#本地安装gulp包，提供gulp的API方法，例如，task-，src-，dest-，watch-方法" class="headerlink" title="本地安装gulp包，提供gulp的API方法，例如，task()，src()，dest()，watch()方法"></a>本地安装gulp包，提供gulp的API方法，例如，task()，src()，dest()，watch()方法</h4><pre><code>npm install gulp --save-dev
 </code></pre><h4 id="创建gulp的配置文件，推荐使用gulpfile作为文件名。"><a href="#创建gulp的配置文件，推荐使用gulpfile作为文件名。" class="headerlink" title="创建gulp的配置文件，推荐使用gulpfile作为文件名。"></a>创建gulp的配置文件，推荐使用gulpfile作为文件名。</h4><h4 id="使用gulp提供的API方法创建各种任务，例如，处理less文件，处理JS文件。"><a href="#使用gulp提供的API方法创建各种任务，例如，处理less文件，处理JS文件。" class="headerlink" title="使用gulp提供的API方法创建各种任务，例如，处理less文件，处理JS文件。"></a>使用gulp提供的API方法创建各种任务，例如，处理less文件，处理JS文件。</h4><h4 id="在创建各种任务时，会依赖其他的包，比如，gulp-less，gulp-uglify，因此我们需要事先安装这些包。"><a href="#在创建各种任务时，会依赖其他的包，比如，gulp-less，gulp-uglify，因此我们需要事先安装这些包。" class="headerlink" title="在创建各种任务时，会依赖其他的包，比如，gulp-less，gulp-uglify，因此我们需要事先安装这些包。"></a>在创建各种任务时，会依赖其他的包，比如，gulp-less，gulp-uglify，因此我们需要事先安装这些包。</h4><pre><code>npm install gulp-less gulp-cssnano gulp-htmlmin gulp-uglify gulp-connect --save-dev
@@ -243,6 +243,7 @@ gulp-htmlmin：压缩HTML文件内容
 gulp-uglify：压缩混淆JS文件内容 
 gulp-connect：创建一个开发阶段所使用的服务器    
 </code></pre><h4 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; src, dest, watch &#125; = <span class="built_in">require</span>(<span class="string">"gulp"</span>);</span><br><span class="line"><span class="keyword">const</span> uglify = <span class="built_in">require</span>(<span class="string">"gulp-uglify"</span>)</span><br><span class="line"><span class="keyword">const</span> css = <span class="built_in">require</span>(<span class="string">"gulp-cssnano"</span>)</span><br><span class="line"><span class="keyword">const</span> html = <span class="built_in">require</span>(<span class="string">"gulp-htmlmin"</span>)</span><br><span class="line"><span class="comment">//创建一个任务</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">task1</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"执行了task1任务"</span>)</span><br><span class="line">    callback();</span><br><span class="line">&#125;</span><br><span class="line">exports.task1 = task1;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* F:\HTML\NoodeJs\gulp\gulpdemo&gt;gulp task1</span></span><br><span class="line"><span class="comment">[21:52:40] Using gulpfile F:\HTML\NoodeJs\gulp\gulpdemo\gulpfile.js</span></span><br><span class="line"><span class="comment">[21:52:40] Starting 'task1'...</span></span><br><span class="line"><span class="comment">执行了task1任务</span></span><br><span class="line"><span class="comment">[21:52:40] Finished 'task1' after 5.24 ms */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//处理JS文件，给JS文件附上亚索的力量！！！</span></span><br><span class="line"><span class="comment">//cnpm install --save-dev gulp-uglify安装压缩混淆包</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">script</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> src(<span class="string">"src/index.js"</span>)</span><br><span class="line">        .pipe(uglify())</span><br><span class="line">        .pipe(dest(<span class="string">"dest/"</span>))  <span class="comment">//压缩后的目录  dest()方法</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.script = script;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* F:\HTML\NoodeJs\gulp\gulpdemo&gt;gulp script</span></span><br><span class="line"><span class="comment">[22:15:05] Using gulpfile F:\HTML\NoodeJs\gulp\gulpdemo\gulpfile.js</span></span><br><span class="line"><span class="comment">[22:15:05] Starting 'script'...</span></span><br><span class="line"><span class="comment">[22:15:05] Finished 'script' after 134 ms */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">htmlmini</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> src(<span class="string">"src/index.html"</span>)</span><br><span class="line">        .pipe(html(&#123; <span class="attr">collapseWhitespace</span>: <span class="literal">true</span> &#125;))</span><br><span class="line">        .pipe(dest(<span class="string">"dest/"</span>))</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cssmini</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> src(<span class="string">"src/index.css"</span>)</span><br><span class="line">        .pipe(css())</span><br><span class="line">        .pipe(dest(<span class="string">"dest/"</span>))</span><br><span class="line">&#125;</span><br><span class="line">exports.css = cssmini;</span><br><span class="line">exports.html = htmlmini;</span><br><span class="line"><span class="comment">/* F:\HTML\NoodeJs\gulp\gulpdemo&gt;gulp html</span></span><br><span class="line"><span class="comment">[22:26:42] Using gulpfile F:\HTML\NoodeJs\gulp\gulpdemo\gulpfile.js</span></span><br><span class="line"><span class="comment">[22:26:42] Starting 'html'...</span></span><br><span class="line"><span class="comment">[22:26:42] Finished 'html' after 35 ms</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">F:\HTML\NoodeJs\gulp\gulpdemo&gt;gulp css</span></span><br><span class="line"><span class="comment">[22:26:52] Using gulpfile F:\HTML\NoodeJs\gulp\gulpdemo\gulpfile.js</span></span><br><span class="line"><span class="comment">[22:26:52] Starting 'css'...</span></span><br><span class="line"><span class="comment">[22:26:52] Finished 'css' after 278 ms */</span></span><br></pre></td></tr></table></figure>
+
     </div>
 </article>
 
@@ -359,12 +360,6 @@ gulp-connect：创建一个开发阶段所使用的服务器
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/07/node-js-第一天/">node.js简单介绍</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2019/01/07/gulp/">gulp</a>
                 </span>
             </li>
@@ -372,6 +367,12 @@ gulp-connect：创建一个开发阶段所使用的服务器
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/01/07/npm管理器/">npm管理器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/node-js-第一天/">node.js简单介绍</a>
                 </span>
             </li>
             
@@ -416,13 +417,15 @@ gulp-connect：创建一个开发阶段所使用的服务器
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/模块化/" style="font-size: 10.653156826114763px;" class="tag-cloud-link">模块化</a>
+    <a href="/tags/模块化/" style="font-size: 14.106750009815237px;" class="tag-cloud-link">模块化</a>
     
-    <a href="/tags/node-js/" style="font-size: 13.441593505312046px;" class="tag-cloud-link">node.js</a>
+    <a href="/tags/nood-js/" style="font-size: 19.896551640758144px;" class="tag-cloud-link">nood.js</a>
     
-    <a href="/tags/noodjs/" style="font-size: 8.288358450020933px;" class="tag-cloud-link">noodjs</a>
+    <a href="/tags/noodjs/" style="font-size: 14.33901542674495px;" class="tag-cloud-link">noodjs</a>
     
-    <a href="/tags/JavaScript/" style="font-size: 9.137362862495337px;" class="tag-cloud-link">JavaScript</a>
+    <a href="/tags/node-js/" style="font-size: 10.934525798116958px;" class="tag-cloud-link">node.js</a>
+    
+    <a href="/tags/JavaScript/" style="font-size: 11.800487655834822px;" class="tag-cloud-link">JavaScript</a>
     
 </div>
                 
