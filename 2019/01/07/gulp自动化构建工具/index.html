@@ -10,7 +10,7 @@
     
     
     
-    <title>计算单数 | 后宫佳丽。</title>
+    <title>gulp | 后宫佳丽。</title>
     <link href="”https://bmmanmyt.github.io“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -164,7 +164,7 @@
                 
                 
                 
-                <li class="current">
+                <li class="">
                     <a href="/calculation/calculation.html">
                         <i class="fa fa-calculator"></i>计算单数
                     </a>
@@ -179,21 +179,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
-
-
+                    
 <article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://bmmanmyt.github.io">后宫佳丽。</a>
+        >
+        <span>gulp</span>
+    </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/calculation/calculation.html">计算单数</a>
+                <a href="/2019/01/07/gulp自动化构建工具/">gulp</a>
             </h1>
         </div>
         <div class="tag-article">
+            
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-01-04
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/nood-js/">nood.js</a>
+                
             </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-01-07
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -201,20 +214,54 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/calculation/calculation.html">计算单数</a>
+                    <a href="/2019/01/07/gulp自动化构建工具/">gulp</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-01-04
+                <i class="fa fa-calendar"></i> 2019-01-07
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/nood-js/">nood.js</a>
+                
+                
+                
             </p>
         </center>
     </div>
     <div class="content-article">
-        <p><link rel="stylesheet" href="./mycss.css"><br>  <div class="boxone"><br>        <p><br>            <span>百分数转化小数</span><input id="percent" type="text"><br>        </p><br>        <button id="go">转化</button><br>        <p><br>            <span>转化为小数后</span><input id="result" type="text"><br>        </p><br>    </div><br>    <div id="data"><br>        <div class="boxtwo"><br>            <p>只需填写1,2,3,4选项,转化率填写为百分数转化后小数。</p><br>            <p><br>                <br>  1,2为计算后的平均数以及对刷单的转化率。<br>                <br> 3,4为商家店铺实际数据。<br>                <br> 6为计算后达到预算需要的单数。<br>                <br> 7为商家店铺实际的出售数量，可以作为比较数据。<br>                <br> 8为要为商家提供的单数。<br>            </p><br>        </div><br>        <ol><br>            <li><span>上级（同级平均）平均访客数:</span> <input id="needvisitor" type="text"></li><br>            <li><span>上级（统计平均）转化率:</span> <input id="needconversion" type="text"></li><br>            <li><span>店铺（找你刷单的）的访客数:</span> <input id="shopvisitor" type="text"></li><br>            <li><span>店铺（找你刷单的）转化率:</span> <input id="shopconversion" type="text"></li><br>            <li id="countbox"> <button id="count">计算 </button></li><br>            <li><span>（同级平均）预计的刷单数:</span> <input id="needquantity" type="text"></li><br>            <li><span>（找你刷单的）店铺实际单数:</span> <input id="shopquantity" type="text"></li><br>            <li><span>你现在要给找你刷单的需要的刷单数:</span> <input id="lastquantity" type="text"></li><br>            <li><span>7天计划总单数:</span> <input type="text" id="SevenTotal"></li><br>            <li><span>15天计划总单数:</span> <input type="text" id="FifteenTotal"></li><br>        </ol><br> <script src="./myjs.js"></script></div></p>
+        <h3 id="gulp-自动化构建工具"><a href="#gulp-自动化构建工具" class="headerlink" title="gulp :自动化构建工具"></a>gulp :自动化构建工具</h3><p>入门指南</p>
+<ol>
+<li><p>全局安装 gulp：</p>
+<pre><code>$ npm install --global gulp
+</code></pre></li>
+<li><p>作为项目的开发依赖（devDependencies）安装：</p>
+<pre><code>$ npm install --save-dev gulp
+</code></pre></li>
+<li><p>在项目根目录下创建一个名为 gulpfile.js 的文件：</p>
+<pre><code>var gulp = require(&apos;gulp&apos;);
 
+gulp.task(&apos;default&apos;, function() {
+// 将你的默认的任务代码放在这
+});
+</code></pre></li>
+<li><p>运行 gulp：</p>
+<pre><code>$ gulp
+</code></pre></li>
+</ol>
+<h3 id="API文档："><a href="#API文档：" class="headerlink" title="API文档："></a>API文档：</h3><pre><code>gulp.src(globs[, options])
+</code></pre><p>输出（Emits）符合所提供的匹配模式（glob）或者匹配模式的数组（array of globs）的文件。 将返回一个 Vinyl files 的 stream 它可以被 piped 到别的插件中。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gulp.src(<span class="string">'client/templates/*.jade'</span>)</span><br><span class="line">  .pipe(jade())    </span><br><span class="line">  .pipe(minify())</span><br><span class="line">  .pipe(gulp.dest(<span class="string">'build/minified_templates'</span>));</span><br></pre></td></tr></table></figure></p>
+<p>通俗来讲gulp就像一条生产线,src将需要生产的物品放进来,通过pipe()进行运输包装（pipe中调用的方法）,完成之后再通过最后的dest()放入产品的仓库。</p>
+<h3 id="常用的API有"><a href="#常用的API有" class="headerlink" title="常用的API有:"></a>常用的API有:</h3><pre><code>src()   :从文件系统中读取对象
+
+dest()  :将创建的文件写入文件系统
+
+watch() :观察全局并在发生改变时运行任务
+</code></pre><h3 id="API具体网址：https-gulpjs-com-docs-en-api-concepts"><a href="#API具体网址：https-gulpjs-com-docs-en-api-concepts" class="headerlink" title="API具体网址：https://gulpjs.com/docs/en/api/concepts"></a>API具体网址：<a href="https://gulpjs.com/docs/en/api/concepts" target="_blank" rel="noopener">https://gulpjs.com/docs/en/api/concepts</a></h3>
     </div>
 </article>
-
 
 
                 </div>
@@ -380,17 +427,17 @@
 
                 
                 <li>
-                    <a href="/calculation/calculation.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/01/07/gulp自动化构建工具/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/calculation/calculation.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/01/07/gulp自动化构建工具/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/calculation/calculation.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/01/07/gulp自动化构建工具/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -398,15 +445,15 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/模块化/" style="font-size: 12.804496268624447px;" class="tag-cloud-link">模块化</a>
+    <a href="/tags/模块化/" style="font-size: 9.161495849268864px;" class="tag-cloud-link">模块化</a>
     
-    <a href="/tags/nood-js/" style="font-size: 11.56661292512674px;" class="tag-cloud-link">nood.js</a>
+    <a href="/tags/nood-js/" style="font-size: 12.465885009710352px;" class="tag-cloud-link">nood.js</a>
     
-    <a href="/tags/node-js/" style="font-size: 16.840324445269516px;" class="tag-cloud-link">node.js</a>
+    <a href="/tags/node-js/" style="font-size: 13.892274339940307px;" class="tag-cloud-link">node.js</a>
     
-    <a href="/tags/ES6新特性/" style="font-size: 16.590406345545844px;" class="tag-cloud-link">ES6新特性</a>
+    <a href="/tags/ES6新特性/" style="font-size: 11.269814288168675px;" class="tag-cloud-link">ES6新特性</a>
     
-    <a href="/tags/JavaScript/" style="font-size: 8.741817958017878px;" class="tag-cloud-link">JavaScript</a>
+    <a href="/tags/JavaScript/" style="font-size: 19.690072784514786px;" class="tag-cloud-link">JavaScript</a>
     
 </div>
                 

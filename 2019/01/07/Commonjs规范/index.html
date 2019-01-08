@@ -141,7 +141,7 @@
                         </li>
                         
                         <li>
-                            <a href="/tags/noodjs/">noodjs</a>
+                            <a href="/tags/node-js/">node.js</a>
                         </li>
                         
                         
@@ -191,7 +191,7 @@
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/01/07/Commonjs/">Commonjs</a>
+                <a href="/2019/01/07/Commonjs规范/">Commonjs</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -214,7 +214,7 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2019/01/07/Commonjs/">Commonjs</a>
+                    <a href="/2019/01/07/Commonjs规范/">Commonjs</a>
                 </h4>
             </div>
             <p>
@@ -232,13 +232,33 @@
         </center>
     </div>
     <div class="content-article">
-        <h3 id="Commonjs-Nood-js模块化规范"><a href="#Commonjs-Nood-js模块化规范" class="headerlink" title="Commonjs :Nood.js模块化规范"></a>Commonjs :Nood.js模块化规范</h3><h4 id="exports-导出"><a href="#exports-导出" class="headerlink" title="exports  导出"></a>exports  导出</h4><h4 id="require-导入"><a href="#require-导入" class="headerlink" title="require   导入"></a>require   导入</h4><p>每个模块内部都有一个module对象，代表当前对象。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    exports.multiply = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 * num2;</span><br><span class="line">&#125;</span><br><span class="line">exports.divide = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 / num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="Commonjs规范"><a href="#Commonjs规范" class="headerlink" title="Commonjs规范"></a>Commonjs规范</h3><h3 id="介绍："><a href="#介绍：" class="headerlink" title="介绍："></a>介绍：</h3><p>CommonJS定义的模块分为:</p>
+<p>1.模块引用(require)</p>
+<p>2.模块定义(exports)</p>
+<p>3.模块标识(module)</p>
+<h4 id="CommonJs规范的出发点："><a href="#CommonJs规范的出发点：" class="headerlink" title="CommonJs规范的出发点："></a>CommonJs规范的出发点：</h4><p>JS没有模块系统、标准库较少、缺乏包管理工具；为了让JS可以在任何地方运行，以达到Java、C#、PHP这些后台语言具备开发大型应用的能力；</p>
+<h4 id="在CommonJs规范中："><a href="#在CommonJs规范中：" class="headerlink" title="在CommonJs规范中："></a>在CommonJs规范中：</h4><p>1一个文件就是一个模块，拥有单独的作用域；</p>
+<p>2普通方式定义的变量、函数、对象都属于该模块内；</p>
+<p>3通过require来加载模块；</p>
+<p>4通过exports和modul.exports来暴露模块中的内容；</p>
+<h4 id="ps"><a href="#ps" class="headerlink" title="ps :"></a>ps :</h4><p>所有代码都运行在模块作用域，不会污染全局作用域；模块可以多次加载，但只会在第一次加载的时候运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果；模块的加载顺序，按照代码的出现顺序是同步加载的;</p>
+<h4 id="exports-导出"><a href="#exports-导出" class="headerlink" title="exports  导出"></a>exports  导出</h4><h4 id="require-导入"><a href="#require-导入" class="headerlink" title="require   导入"></a>require   导入</h4><p>每个模块内部都有一个module对象，代表当前对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">exports.multiply = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 * num2;</span><br><span class="line"> &#125;</span><br><span class="line">exports.divide = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 / num2;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 <h4 id="module变量："><a href="#module变量：" class="headerlink" title="module变量："></a>module变量：</h4><p> 每个模块内部都有一个module对象，代表着当前模块。它有以下属性：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">module</span>.id)    <span class="comment">// 模块的标识符，通常是带有绝对路径的模块文件名</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="built_in">module</span>.filename)    <span class="comment">// 模块文件名，带有绝对路径</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="built_in">module</span>.parent)    <span class="comment">// 调用该模块的模块</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="built_in">module</span>.chilren)    <span class="comment">// 该模块调用的模块</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="built_in">module</span>.exports)    <span class="comment">// 表示模块对外导出的值</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">module</span>.id)           <span class="comment">// 模块的标识符，通常是带有绝对路径的模块文件名</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="built_in">module</span>.filename)    <span class="comment">// 模块文件名，带有绝对路径</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="built_in">module</span>.parent)      <span class="comment">// 调用该模块的模块</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="built_in">module</span>.chilren)     <span class="comment">// 该模块调用的模块</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="built_in">module</span>.exports)     <span class="comment">// 表示模块对外导出的值</span></span><br></pre></td></tr></table></figure>
 <h4 id="exports变量："><a href="#exports变量：" class="headerlink" title="exports变量："></a>exports变量：</h4><p> 为了方便，Node为每个模块提供了exports变量，指向module.exports，</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> 等同于：<span class="keyword">var</span> exports = <span class="built_in">module</span>.exports（Node隐式做了这个赋值）</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(exports)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="keyword">let</span> multiply = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> num1 * num2;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">let</span> divide = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> num1 / num2;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="built_in">module</span>.exports = &#123;&#125;</span><br><span class="line"> <span class="keyword">var</span> exports = <span class="built_in">module</span>.exports</span><br></pre></td></tr></table></figure>
-<h4 id="如果改变了-module-exports，但还想使用-exports-xxx-的方法暴露一些东西，"><a href="#如果改变了-module-exports，但还想使用-exports-xxx-的方法暴露一些东西，" class="headerlink" title="如果改变了 module.exports，但还想使用 exports.xxx 的方法暴露一些东西，"></a>如果改变了 module.exports，但还想使用 exports.xxx 的方法暴露一些东西，</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> 我们需要让exports重新指向<span class="built_in">module</span>.exports</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line">exports = <span class="built_in">module</span>.exports;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 常见的写法：</span></span><br><span class="line">exports = <span class="built_in">module</span>.exports = &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>等同于：</p>
+<p><code>var exports = module.exports（Node隐式做了这个赋值）</code></p>
+<p>这样做的好处是，在对外输出模块接口时，可以向exports对象添加方法暴露出去。<br>因此如果改变了module.exports，但还想使用export.xxx的方式暴露一些东西，那就只好我们自己来写<code>exports = module.exports;
+console.log(exports)</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">module.exports = songthing;//接下来把exports指回来</span><br><span class="line">exports = module.exports;//常见写法是：exports = module.exports = something;</span><br></pre></td></tr></table></figure></p>
+<h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><p>导出module1.js模块中内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">exports.multiply = function(num1, num2) &#123;</span><br><span class="line">return num1 * num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.divide = function(num1, num2) &#123;</span><br><span class="line">return num1 / num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>导入module1.js模块中的内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const module1 = require(&apos;./module1.js&apos;);</span><br><span class="line"></span><br><span class="line">console.log(module1.multiply(3, 4))</span><br><span class="line">console.log(module1.divide(12, 4))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="常用命令已经标识符"><a href="#常用命令已经标识符" class="headerlink" title="常用命令已经标识符"></a>常用命令已经标识符</h3><p>__dirname代表当前模块文件所在的文件夹路径</p>
+<p>__filename代表当前模块文件所在的文件夹路径+文件名</p>
+<p>npm root -g：查看npm全局包安装位置，建议在nvm目录下新建npm\node_modules目录，然后设置npm的全局包安装位置：npm config set prefix “”，然后将该路径添加到环境变量中;</p>
+<p>npm init -y：初始化一个package.json文件，加上-y就会默认生成该文件，无需一步一步填写；npm docs 包名：查看包的文档；npm install：安装package.json中dependencies属性中所有依赖的包</p>
 
     </div>
 </article>
@@ -298,25 +318,31 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/07/gulp/">gulp</a>
+                    <a href="/2019/01/08/利用gulp与npm创建对网页内容的编辑刷新自动化/">利用gulp与npm创建自动化工具</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/07/npm管理器/">npm管理器</a>
+                    <a href="/2019/01/07/gulp自动化构建工具/">gulp</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/07/Commonjs/">Commonjs</a>
+                    <a href="/2019/01/07/npm第三方包管理器/">npm管理器</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/07/node-js-第一天/">node.js简单介绍</a>
+                    <a href="/2019/01/07/Commonjs规范/">Commonjs</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/node-js介绍/">node.js简单介绍</a>
                 </span>
             </li>
             
@@ -350,25 +376,31 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/07/Commonjs/">Commonjs</a>
+                    <a href="/2019/01/07/Commonjs规范/">Commonjs</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/07/gulp/">gulp</a>
+                    <a href="/2019/01/07/gulp自动化构建工具/">gulp</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/07/npm管理器/">npm管理器</a>
+                    <a href="/2019/01/07/node-js介绍/">node.js简单介绍</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/07/node-js-第一天/">node.js简单介绍</a>
+                    <a href="/2019/01/07/npm第三方包管理器/">npm管理器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/08/利用gulp与npm创建对网页内容的编辑刷新自动化/">利用gulp与npm创建自动化工具</a>
                 </span>
             </li>
             
@@ -395,17 +427,17 @@
 
                 
                 <li>
-                    <a href="/2019/01/07/Commonjs/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/01/07/Commonjs规范/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/01/07/Commonjs/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/01/07/Commonjs规范/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/01/07/Commonjs/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/01/07/Commonjs规范/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -413,15 +445,15 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/模块化/" style="font-size: 11.833132693003993px;" class="tag-cloud-link">模块化</a>
+    <a href="/tags/模块化/" style="font-size: 15.577124386751574px;" class="tag-cloud-link">模块化</a>
     
-    <a href="/tags/nood-js/" style="font-size: 9.658166508163287px;" class="tag-cloud-link">nood.js</a>
+    <a href="/tags/nood-js/" style="font-size: 10.829539919768786px;" class="tag-cloud-link">nood.js</a>
     
-    <a href="/tags/noodjs/" style="font-size: 9.644013438921725px;" class="tag-cloud-link">noodjs</a>
+    <a href="/tags/node-js/" style="font-size: 15.437294999761987px;" class="tag-cloud-link">node.js</a>
     
-    <a href="/tags/node-js/" style="font-size: 12.777922441106544px;" class="tag-cloud-link">node.js</a>
+    <a href="/tags/ES6新特性/" style="font-size: 16.817043899797095px;" class="tag-cloud-link">ES6新特性</a>
     
-    <a href="/tags/JavaScript/" style="font-size: 15.139284223620539px;" class="tag-cloud-link">JavaScript</a>
+    <a href="/tags/JavaScript/" style="font-size: 17.122038162089098px;" class="tag-cloud-link">JavaScript</a>
     
 </div>
                 
