@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="who is me?">
+    <meta name="author" content="王某人">
     
     
     
@@ -133,11 +133,11 @@
                         
                         
                         <li>
-                            <a href="/tags/模块化/">模块化</a>
+                            <a href="/tags/node-js-模块化/">node.js  模块化</a>
                         </li>
                         
                         <li>
-                            <a href="/tags/nood-js/">nood.js</a>
+                            <a href="/tags/node-js-自动化/">node.js 自动化</a>
                         </li>
                         
                         <li>
@@ -248,7 +248,7 @@ gulp-connect：创建一个开发阶段所使用的服务器
 <h4 id="压缩HTML网页"><a href="#压缩HTML网页" class="headerlink" title="压缩HTML网页"></a>压缩HTML网页</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">htmlmini</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> src(<span class="string">"src/*.html"</span>)</span><br><span class="line">        .pipe(htmlmin(&#123; <span class="attr">collapseWhitespace</span>: <span class="literal">true</span> &#125;))</span><br><span class="line">        .pipe(dest(<span class="string">"dest/"</span>))</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"> exports.htmlmn = htmlmini</span><br></pre></td></tr></table></figure>
 <h4 id="压缩JS"><a href="#压缩JS" class="headerlink" title="压缩JS"></a>压缩JS</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">scriptmini</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> src(<span class="string">"src/*.js"</span>)</span><br><span class="line">        .pipe(uglify())</span><br><span class="line">        .pipe(dest(<span class="string">"dest/"</span>))</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"> exports.scriptmn = scriptmini</span><br></pre></td></tr></table></figure>
 <h4 id="压缩css"><a href="#压缩css" class="headerlink" title="压缩css"></a>压缩css</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cssmini</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> src(<span class="string">"src/*.css"</span>)</span><br><span class="line">        .pipe(cssnano())</span><br><span class="line">        .pipe(dest(<span class="string">"dest/"</span>))</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">exports.cssmn=cssmini</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">watchfile</span>(<span class="params">cb</span>)</span>&#123;</span><br><span class="line">    watch(<span class="string">"src/*.html"</span>,htmlmini)</span><br><span class="line">    watch(<span class="string">"src/*.js"</span>,scriptmini)</span><br><span class="line">    watch(<span class="string">"src/*.css"</span>,cssmini)</span><br><span class="line">    cb()</span><br><span class="line">&#125;</span><br><span class="line">exports.watch=watchfile</span><br></pre></td></tr></table></figure>
+<h4 id="监听文件，被修改后调用方法"><a href="#监听文件，被修改后调用方法" class="headerlink" title="监听文件，被修改后调用方法"></a>监听文件，被修改后调用方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">watchfile</span>(<span class="params">cb</span>)</span>&#123;</span><br><span class="line">    watch(<span class="string">"src/*.html"</span>,htmlmini)</span><br><span class="line">    watch(<span class="string">"src/*.js"</span>,scriptmini)</span><br><span class="line">    watch(<span class="string">"src/*.css"</span>,cssmini)</span><br><span class="line">    cb()</span><br><span class="line">&#125;</span><br><span class="line">exports.watch=watchfile</span><br></pre></td></tr></table></figure>
 <h4 id="创建本地服务器"><a href="#创建本地服务器" class="headerlink" title="创建本地服务器"></a>创建本地服务器</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">serverauto</span>(<span class="params">cb</span>)</span>&#123;</span><br><span class="line">    connect.server(&#123;</span><br><span class="line">        root: <span class="string">"dest"</span>,</span><br><span class="line">        port: <span class="number">4000</span>,</span><br><span class="line">        livereload:<span class="literal">true</span></span><br><span class="line">    &#125;)</span><br><span class="line">    cb()</span><br><span class="line">&#125;</span><br><span class="line">exports.servermn=serverauto</span><br></pre></td></tr></table></figure>
 <h4 id="当服务器与自动化任务创建完成之后就可以通过series方法绑定为默认方法。"><a href="#当服务器与自动化任务创建完成之后就可以通过series方法绑定为默认方法。" class="headerlink" title="当服务器与自动化任务创建完成之后就可以通过series方法绑定为默认方法。"></a>当服务器与自动化任务创建完成之后就可以通过series方法绑定为默认方法。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports.default =series(watchfile,serverauto)</span><br></pre></td></tr></table></figure>
 <p>所有的内容均在nood.js中执行文件，HTML/CSS/JS的编写在vscode中进行编辑，保存。</p>
@@ -275,7 +275,7 @@ gulp-connect：创建一个开发阶段所使用的服务器
     <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
         <div class="panel-heading" style="text-align: center">
             <i class="fa fa-quote-left"></i>
-            who is me?
+            王某人
             <i class="fa fa-quote-right"></i>
         </div>
         <div class="author-panel text-center">
@@ -306,7 +306,7 @@ gulp-connect：创建一个开发阶段所使用的服务器
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/07/gulp自动化构建工具/">gulp</a>
+                    <a href="/2019/01/07/gulp自动化构建工具/">gulp :自动化构建工具</a>
                 </span>
             </li>
             
@@ -318,7 +318,7 @@ gulp-connect：创建一个开发阶段所使用的服务器
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/07/Commonjs规范/">Commonjs</a>
+                    <a href="/2019/01/07/Commonjs规范/">Commonjs规范</a>
                 </span>
             </li>
             
@@ -358,13 +358,13 @@ gulp-connect：创建一个开发阶段所使用的服务器
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/07/Commonjs规范/">Commonjs</a>
+                    <a href="/2019/01/07/Commonjs规范/">Commonjs规范</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/07/gulp自动化构建工具/">gulp</a>
+                    <a href="/2019/01/07/gulp自动化构建工具/">gulp :自动化构建工具</a>
                 </span>
             </li>
             
@@ -427,15 +427,19 @@ gulp-connect：创建一个开发阶段所使用的服务器
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/模块化/" style="font-size: 8.576767142735982px;" class="tag-cloud-link">模块化</a>
+    <a href="/tags/node-js-模块化/" style="font-size: 13.311958717151624px;" class="tag-cloud-link">node.js  模块化</a>
     
-    <a href="/tags/nood-js/" style="font-size: 18.637730255868973px;" class="tag-cloud-link">nood.js</a>
+    <a href="/tags/node-js-自动化/" style="font-size: 14.280341712547454px;" class="tag-cloud-link">node.js 自动化</a>
     
-    <a href="/tags/node-js/" style="font-size: 10.591944254503339px;" class="tag-cloud-link">node.js</a>
+    <a href="/tags/node-js/" style="font-size: 16.89585774978113px;" class="tag-cloud-link">node.js</a>
     
-    <a href="/tags/ES6新特性/" style="font-size: 16.270553347654648px;" class="tag-cloud-link">ES6新特性</a>
+    <a href="/tags/node-js-管理器/" style="font-size: 8.641767029178572px;" class="tag-cloud-link">node.js 管理器</a>
     
-    <a href="/tags/JavaScript/" style="font-size: 14.246751711348669px;" class="tag-cloud-link">JavaScript</a>
+    <a href="/tags/nood-js/" style="font-size: 15.083513332962234px;" class="tag-cloud-link">nood.js</a>
+    
+    <a href="/tags/ES6新特性/" style="font-size: 8.196572995731394px;" class="tag-cloud-link">ES6新特性</a>
+    
+    <a href="/tags/JavaScript/" style="font-size: 8.687088068270292px;" class="tag-cloud-link">JavaScript</a>
     
 </div>
                 
@@ -467,7 +471,7 @@ gulp-connect：创建一个开发阶段所使用的服务器
     </div>
     <footer id="gal-footer">
     <div class="container">
-        Copyright © 2019 who is me? Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+        Copyright © 2019 王某人 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
 </footer>
 
