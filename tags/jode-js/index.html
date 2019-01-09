@@ -10,7 +10,7 @@
     
     
     
-    <title>npm管理器 | 后宫佳丽。</title>
+    <title>tags: jode.js | 后宫佳丽。</title>
     <link href="”https://bmmanmyt.github.io“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,34 +171,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    
-<article class="article well article-body" id="article">
+                    <article class="article well article-body" id="article-tag">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="https://bmmanmyt.github.io">后宫佳丽。</a>
         >
-        <span>npm管理器</span>
+        <span>标签</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/01/07/npm第三方包管理器/">npm管理器</a>
+                <a href="/tags/jode-js/index.html">jode.js</a>
             </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/node-js-管理器/">node.js 管理器</a>
-                
-            </span>
-            
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-01-07
-            </span>
-            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -206,77 +191,21 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2019/01/07/npm第三方包管理器/">npm管理器</a>
+                    <a href="/tags/jode-js/index.html">jode.js</a>
                 </h4>
             </div>
-            <p>
-                <i class="fa fa-calendar"></i> 2019-01-07
-            </p>
-            <p>
-                
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/node-js-管理器/">node.js 管理器</a>
-                
-                
-                
-            </p>
         </center>
     </div>
-    <div class="content-article">
-        <h3 id="NPM-NPM是随同NodeJS一起安装的包管理工具"><a href="#NPM-NPM是随同NodeJS一起安装的包管理工具" class="headerlink" title="NPM: NPM是随同NodeJS一起安装的包管理工具"></a>NPM: NPM是随同NodeJS一起安装的包管理工具</h3><h4 id="为了安装第三包，需要用nom管理器。"><a href="#为了安装第三包，需要用nom管理器。" class="headerlink" title="为了安装第三包，需要用nom管理器。"></a>为了安装第三包，需要用nom管理器。</h4><p>第三方平台下载 : <a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a></p>
-<h4 id="安装npm"><a href="#安装npm" class="headerlink" title="安装npm :"></a>安装npm :</h4><pre><code>npm init 
-创建之后，在package.json中加入private：true代表设置为私人的包，并不会公众化。
-</code></pre><h4 id="安装第三方包"><a href="#安装第三方包" class="headerlink" title="安装第三方包"></a>安装第三方包</h4><pre><code>npm install --global http-server 
-安装全局http命令。
-默认为最新版本，在server后@可设置版本号。
-npm uninstall --global http-server
-卸载全局http命令
-</code></pre><h4 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h4><ol>
-<li>将安装包放在 /usr/local 下或者你 node 的安装目录。</li>
-<li>可以直接在命令行里使用。<br> npm install –global gulp<h4 id="安装本地包"><a href="#安装本地包" class="headerlink" title="安装本地包"></a>安装本地包</h4></li>
-<li>将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。</li>
-<li><p>可以通过 require() 来引入本地安装的包。</p>
-<p> npm install gulp<br> –save-dev/-D   适用于开发阶段的包<br> –save       适用于开发和产品阶段</p>
-</li>
-</ol>
-<h4 id="卸载模块"><a href="#卸载模块" class="headerlink" title="卸载模块"></a>卸载模块</h4><p>我们可以使用以下命令来卸载 Node.js 模块。</p>
-<p>$ npm uninstall express<br>卸载后，你可以到 /node_modules/ 目录下查看包是否还存在，或者使用以下命令查看：</p>
-<p>$ npm ls</p>
-<h4 id="更新模块"><a href="#更新模块" class="headerlink" title="更新模块"></a>更新模块</h4><p>我们可以使用以下命令更新模块：</p>
-<p>$ npm update express</p>
-<h4 id="搜索模块"><a href="#搜索模块" class="headerlink" title="搜索模块"></a>搜索模块</h4><p>使用以下来搜索模块：</p>
-<p>$ npm search express</p>
-<h4 id="创建模块"><a href="#创建模块" class="headerlink" title="创建模块"></a>创建模块</h4><p>创建模块，package.json 文件是必不可少的。我们可以使用 NPM 生成 package.json 文件，生成的文件包含了基本的结果。<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">$ npm init</span><br><span class="line">This utility will walk you through creating a package.json file.</span><br><span class="line">It only covers the most common items, and tries to guess sensible defaults.</span><br><span class="line"></span><br><span class="line">See `npm <span class="built_in">help</span> json` <span class="keyword">for</span> definitive documentation on these fields</span><br><span class="line">and exactly what they <span class="keyword">do</span>.</span><br><span class="line"></span><br><span class="line">Use `npm install &lt;pkg&gt; --save` afterwards to install a package and</span><br><span class="line">save it as a dependency <span class="keyword">in</span> the package.json file.</span><br><span class="line"></span><br><span class="line">Press ^C <span class="built_in">at</span> any <span class="built_in">time</span> to quit.</span><br><span class="line"><span class="function">name: (<span class="title">node_modules</span>) <span class="title">runoob</span>                   # 模块名</span></span><br><span class="line"><span class="function"><span class="title">version</span>: (1.0.0) </span></span><br><span class="line"><span class="function"><span class="title">description</span>: <span class="title">Node.js</span> 测试模块(<span class="title">www.runoob.com</span>)  # 描述</span></span><br><span class="line"><span class="function"><span class="title">entry</span> <span class="title">point</span>: (<span class="title">index.js</span>) </span></span><br><span class="line"><span class="function"><span class="title">test</span> <span class="title">command</span>: <span class="title">make</span> <span class="title">test</span></span></span><br><span class="line"><span class="function"><span class="title">git</span> <span class="title">repository</span>: <span class="title">https</span>://<span class="title">github.com</span>/<span class="title">runoob</span>/<span class="title">runoob.git</span>  # <span class="title">Github</span> 地址</span></span><br><span class="line"><span class="function"><span class="title">keywords</span>: </span></span><br><span class="line"><span class="function"><span class="title">author</span>: </span></span><br><span class="line"><span class="function"><span class="title">license</span>: (<span class="title">ISC</span>) </span></span><br><span class="line"><span class="function"><span class="title">About</span> <span class="title">to</span> <span class="title">write</span> <span class="title">to</span> ……/<span class="title">node_modules</span>/<span class="title">package.json</span>:      # 生成地址</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">&#123;</span></span><br><span class="line"><span class="function">  "<span class="title">name</span>": "<span class="title">runoob</span>",</span></span><br><span class="line"><span class="function">  "<span class="title">version</span>": "1.0.0",</span></span><br><span class="line"><span class="function">  "<span class="title">description</span>": "<span class="title">Node.js</span> 测试模块(<span class="title">www.runoob.com</span>)",</span></span><br><span class="line"><span class="function">  ……</span></span><br><span class="line"><span class="function">&#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">Is</span> <span class="title">this</span> <span class="title">ok</span>? (<span class="title">yes</span>) <span class="title">yes</span></span></span><br><span class="line"><span class="function">以上的信息，你需要根据你自己的情况输入。在最后输入 "<span class="title">yes</span>" 后会生成 <span class="title">package.json</span> 文件。</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="注册用户（使用邮箱注册）："><a href="#注册用户（使用邮箱注册）：" class="headerlink" title="注册用户（使用邮箱注册）："></a>注册用户（使用邮箱注册）：</h4><p>$ npm adduser<br>Username: mcmohd<br>Password:<br>Email: (this IS public) <a href="mailto:mcmohd@gmail.com" target="_blank" rel="noopener">mcmohd@gmail.com</a></p>
-<h4 id="发布模块："><a href="#发布模块：" class="headerlink" title="发布模块："></a>发布模块：</h4><p>$ npm publish<br>如果你以上的步骤都操作正确，你就可以跟其他模块一样使用 npm 来安装。</p>
-<h4 id="NPM-常用命令"><a href="#NPM-常用命令" class="headerlink" title="NPM 常用命令"></a>NPM 常用命令</h4><p>除了本章介绍的部分外，NPM还提供了很多功能，package.json里也有很多其它有用的字段。</p>
-<p>NPM提供了很多命令，例如install和publish，使用npm help可查看所有命令。</p>
-<ol>
-<li><p>使用npm help <command>可查看某条命令的详细帮助，例如npm help install。</p>
-</li>
-<li><p>在package.json所在目录下使用npm install . -g可先在本地安装当前命令行程序，可用于发布前的本地测试。</p>
-</li>
-<li><p>使用npm update <package>可以把当前目录下node_modules子目录里边的对应模块更新至最新版本。</package></p>
-</li>
-<li><p>使用npm update <package> -g可以把全局安装的对应命令行程序更新至最新版。</package></p>
-</li>
-<li><p>使用npm cache clear可以清空NPM本地缓存，用于对付使用相同版本号发布新版本代码的人。</p>
-</li>
-<li><p>使用npm unpublish <package>@<version>可以撤销发布自己发布过的某个版本代码。</version></package></p>
-</li>
-</ol>
-<h4 id="解决服务器在国外下载慢的问题。"><a href="#解决服务器在国外下载慢的问题。" class="headerlink" title="解决服务器在国外下载慢的问题。"></a>解决服务器在国外下载慢的问题。</h4><h5 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h5><pre><code>淘宝定制命令行工具
-npm install -g cnpm --registry=https://registry.npm.taobao.org
-</code></pre><h5 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h5><pre><code>修改npm的下载仓库为淘宝镜像
-npm config set registry http://registry.npm.taobao.org/
-如果要发布自己的镜像需要修改回来
-npm config set registry https://registry.npmjs.org/
-</code></pre>
+    <div class="content-article" style="margin-top: 30px;">
+        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
+            
+            <a href="/2019/01/09/node-js搭建服务器-1/">node.js搭建服务器</a>
+            <br>
+            
+            
+        </div>
     </div>
 </article>
-
-
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -440,17 +369,17 @@ npm config set registry https://registry.npmjs.org/
 
                 
                 <li>
-                    <a href="/2019/01/07/npm第三方包管理器/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/tags/jode-js/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/01/07/npm第三方包管理器/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/tags/jode-js/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/01/07/npm第三方包管理器/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/tags/jode-js/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -458,21 +387,21 @@ npm config set registry https://registry.npmjs.org/
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/node-js/" style="font-size: 15.289750956438551px;" class="tag-cloud-link">node.js</a>
+    <a href="/tags/node-js/" style="font-size: 11.225148322692798px;" class="tag-cloud-link">node.js</a>
     
-    <a href="/tags/node-js-自动化/" style="font-size: 9.418293818584683px;" class="tag-cloud-link">node.js 自动化</a>
+    <a href="/tags/node-js-自动化/" style="font-size: 9.81227002608988px;" class="tag-cloud-link">node.js 自动化</a>
     
-    <a href="/tags/node-js-模块化/" style="font-size: 8.562276363650756px;" class="tag-cloud-link">node.js  模块化</a>
+    <a href="/tags/node-js-模块化/" style="font-size: 13.918654824201809px;" class="tag-cloud-link">node.js  模块化</a>
     
-    <a href="/tags/jode-js/" style="font-size: 13.797026959143686px;" class="tag-cloud-link">jode.js</a>
+    <a href="/tags/jode-js/" style="font-size: 8.600629323276653px;" class="tag-cloud-link">jode.js</a>
     
-    <a href="/tags/JavaScript/" style="font-size: 9.082407025435238px;" class="tag-cloud-link">JavaScript</a>
+    <a href="/tags/JavaScript/" style="font-size: 9.64490562488773px;" class="tag-cloud-link">JavaScript</a>
     
-    <a href="/tags/ES6新特性/" style="font-size: 19.781349721628505px;" class="tag-cloud-link">ES6新特性</a>
+    <a href="/tags/ES6新特性/" style="font-size: 16.543577614158195px;" class="tag-cloud-link">ES6新特性</a>
     
-    <a href="/tags/nood-js/" style="font-size: 16.263999239339565px;" class="tag-cloud-link">nood.js</a>
+    <a href="/tags/nood-js/" style="font-size: 9.83715500045685px;" class="tag-cloud-link">nood.js</a>
     
-    <a href="/tags/node-js-管理器/" style="font-size: 13.465508345634644px;" class="tag-cloud-link">node.js 管理器</a>
+    <a href="/tags/node-js-管理器/" style="font-size: 8.711340594620605px;" class="tag-cloud-link">node.js 管理器</a>
     
 </div>
                 

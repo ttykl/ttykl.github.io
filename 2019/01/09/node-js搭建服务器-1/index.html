@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="王某人">
+    
+    
+    
+    
+    
+    
+    <title>node.js搭建服务器 | 后宫佳丽。</title>
+    <link href="”https://bmmanmyt.github.io“" rel="”prefetch”">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/smallbg.jpg');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/http:/q2.qlogo.cn/headimg_dl?dst_uin=1363931801&spec=100'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+    <link href="/imgs/favicon.ico" rel="icon">
+</head></html>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://bmmanmyt.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">シューマン</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-归档"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/node-js/">node.js</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/node-js/">node.js</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/node-js-自动化/">node.js 自动化</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/node-js-模块化/">node.js  模块化</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://bmmanmyt.github.io">后宫佳丽。</a>
+        >
+        <span>node.js搭建服务器</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/01/09/node-js搭建服务器-1/">node.js搭建服务器</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/jode-js/">jode.js</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-01-09
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2019/01/09/node-js搭建服务器-1/">node.js搭建服务器</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-01-09
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/jode-js/">jode.js</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h3 id="使用node-JS搭建服务器实战"><a href="#使用node-JS搭建服务器实战" class="headerlink" title="使用node.JS搭建服务器实战"></a>使用node.JS搭建服务器实战</h3><h4 id="Express是一个基于NodeJS平台的Web框架。"><a href="#Express是一个基于NodeJS平台的Web框架。" class="headerlink" title="Express是一个基于NodeJS平台的Web框架。"></a>Express是一个基于NodeJS平台的Web框架。</h4><ol>
+<li><p>首先假定你已经安装了 Node.js，接下来为你的应用创建一个目录，然后进入此目录并将其作为当前工作目录。</p>
+<p> $ mkdir myapp<br> $ cd myapp</p>
+</li>
+<li><p>通过 npm init 命令为你的应用创建一个 package.json 文件。 </p>
+<p> $ npm init</p>
+</li>
+</ol>
+<p>此命令将要求你输入几个参数，例如此应用的名称和版本。 你可以直接按“回车”键接受大部分默认设置即可。</p>
+<ol start="3">
+<li><p>接下来在 myapp 目录下安装 Express 并将其保存到项目的依赖列表中。如下：</p>
+<p> $ npm install express –save</p>
+</li>
+</ol>
+<ol start="4">
+<li><p>创建index.js文件，并导入express：</p>
+<p> const express = require(‘express’);<br> const app = express();</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">app.use(express.urlencoded()); <span class="comment">// 解析application/x-www-form-urlencoded编码的数据</span></span><br><span class="line">app.use(express.json());        <span class="comment">// 解析application/json编码的数据</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 托管 public 目录下的静态资源</span></span><br><span class="line">app.use(express.static(<span class="string">'public'</span>));</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; res.send(<span class="string">'Hello World!'</span>))</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">8080</span>, () =&gt; <span class="built_in">console</span>.log(<span class="string">'Server running at port 8080'</span>));</span><br></pre></td></tr></table></figure>
+<h4 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h4><h3 id="server-js"><a href="#server-js" class="headerlink" title="server.js"></a>server.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>)  <span class="comment">//导入express</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = express();      </span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>)  <span class="comment">//导入body-parser</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> students=<span class="built_in">require</span>(<span class="string">"./router/students.js"</span>) <span class="comment">//导入students.js</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app.use(bodyParser.urlencoded());</span><br><span class="line">app.use(express.static(<span class="string">'public'</span>))<span class="comment">//设置请求头</span></span><br><span class="line">app.use(<span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    res.header(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>)</span><br><span class="line">    res.header(<span class="string">"Content-Type"</span>, <span class="string">"application/json"</span>)</span><br><span class="line">    next()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.use(<span class="string">"/student"</span>,students)   <span class="comment">//设置目录</span></span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">8080</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"启动在8080端口"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="student-js"><a href="#student-js" class="headerlink" title="student.js"></a>student.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>)</span><br><span class="line"><span class="keyword">const</span> router = express.Router()</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>)  <span class="comment">//导入fs文件管理系统</span></span><br><span class="line"><span class="keyword">const</span> STUNENTSFILE = <span class="string">"./../data/students.json"</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>) <span class="comment">//导入path路径系统</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取学生信息</span></span><br><span class="line">req: request    <span class="comment">//发送请求到服务器的数据在req.body中</span></span><br><span class="line"></span><br><span class="line">res: reponse    <span class="comment">//服务器返回数据</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">router.get(<span class="string">"/"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    fs.readFile(path.join(__dirname, STUNENTSFILE), <span class="string">"utf8"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">        res.status(<span class="number">200</span>).send(data)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加学生数据</span></span><br><span class="line">router.post(<span class="string">"/adddata"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> students = &#123;</span><br><span class="line">        <span class="string">"ID"</span>: <span class="built_in">Date</span>.now(),</span><br><span class="line">        <span class="string">"name"</span>: req.body.name,</span><br><span class="line">        <span class="string">"age"</span>: req.body.age,</span><br><span class="line">        <span class="string">"tel"</span>: req.body.tel,</span><br><span class="line">        <span class="string">"adress"</span>: req.body.adress,</span><br><span class="line">        <span class="string">"hobby"</span>: req.body.hobby,</span><br><span class="line">        <span class="string">"gander"</span>: req.body.gander,</span><br><span class="line">        <span class="string">"oldtime"</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(),</span><br><span class="line">        <span class="string">"newtime"</span>: <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">    &#125;</span><br><span class="line">    fs.readFile(path.join(__dirname, STUNENTSFILE), <span class="string">"utf8"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            data = <span class="built_in">JSON</span>.parse(data)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">console</span>.log(error)</span><br><span class="line">        &#125;</span><br><span class="line">        data.push(students)</span><br><span class="line">        fs.writeFile(path.join(__dirname, STUNENTSFILE), <span class="built_in">JSON</span>.stringify(data, <span class="literal">null</span>, <span class="number">4</span>), <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">            res.status(<span class="number">200</span>).send(data)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//删除学生数据</span></span><br><span class="line">router.delete(<span class="string">"/deldata"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    fs.readFile(path.join(__dirname, STUNENTSFILE), <span class="string">"utf8"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">        students = <span class="built_in">JSON</span>.parse(data)</span><br><span class="line">        <span class="keyword">let</span> deleteindex = <span class="number">-1</span></span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">        students.forEach(<span class="function">(<span class="params">student, index</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (student.ID == req.body.ID) &#123;</span><br><span class="line">                deleteindex = index</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">if</span> (deleteindex &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            students.splice(deleteindex, <span class="number">1</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        fs.writeFile(path.join(__dirname, STUNENTSFILE), <span class="built_in">JSON</span>.stringify(students, <span class="literal">null</span>, <span class="number">4</span>), <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">            res.status(<span class="number">200</span>).send(<span class="string">"删除成功"</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//修改学生数据</span></span><br><span class="line">router.put(<span class="string">"/complete"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    fs.readFile(path.join(__dirname, STUNENTSFILE), <span class="string">"utf8"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">        students = <span class="built_in">JSON</span>.parse(data)</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">        students.forEach(<span class="function">(<span class="params">student</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (student.ID == req.body.ID) &#123;</span><br><span class="line">                student.name = req.body.name,</span><br><span class="line">                    student.age = req.body.age,</span><br><span class="line">                    student.tel = req.body.tel,</span><br><span class="line">                    student.adress = req.body.adress,</span><br><span class="line">                    student.gander = req.body.gander,</span><br><span class="line">                    student.newtime = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        fs.writeFile(path.join(__dirname, STUNENTSFILE), <span class="built_in">JSON</span>.stringify(students, <span class="literal">null</span>, <span class="number">4</span>), <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">            res.status(<span class="number">200</span>).send(<span class="string">"修改成功"</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">exports = <span class="built_in">module</span>.exports = router</span><br></pre></td></tr></table></figure>
+<h3 id="前台HTML"><a href="#前台HTML" class="headerlink" title="前台HTML"></a>前台HTML</h3><h3 id="html"><a href="#html" class="headerlink" title="html"></a>html</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"./src/css/index.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>名字<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>年龄<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>性别<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>电话<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>地址<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>操作<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tbody</span> <span class="attr">id</span>=<span class="string">"newstudent"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">contenteditable</span>=<span class="string">true</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">contenteditable</span>=<span class="string">true</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">contenteditable</span>=<span class="string">true</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">contenteditable</span>=<span class="string">true</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">contenteditable</span>=<span class="string">true</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"remove"</span> <span class="attr">click</span>=<span class="string">"savadata()"</span>&gt;</span>保存<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"student_list"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span> &gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>ID<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>名字<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>年龄<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>性别<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>电话<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>地址<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>修改时间<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>保存时间<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">th</span>&gt;</span>操作<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">tbody</span> <span class="attr">id</span>=<span class="string">"studentsdata"</span>&gt;</span><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./src/js/index.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="JS代码"><a href="#JS代码" class="headerlink" title="JS代码"></a>JS代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">//获取数据</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getdata</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> gg = <span class="literal">null</span></span><br><span class="line">    $.get(<span class="string">"/student"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">response, success, xhr</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; response.length; i++) &#123;</span><br><span class="line">            gg += (<span class="string">'&lt;tr&gt;&lt;td&gt;'</span> + response[i].ID + <span class="string">'&lt;/td&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;td&gt;'</span> + response[i].name + <span class="string">'&lt;/td&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;td&gt;'</span> + response[i].age + <span class="string">'&lt;/td&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;td&gt;'</span> + response[i].gander + <span class="string">'&lt;/td&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;td&gt;'</span> + response[i].tel + <span class="string">'&lt;/td&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;td&gt;'</span> + response[i].adress + <span class="string">'&lt;/td&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;td&gt;'</span> + response[i].newtime + <span class="string">'&lt;/td&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;td&gt;'</span> + response[i].oldtime + <span class="string">'&lt;/td&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;td&gt;&lt;button class="amend" &gt;修改&lt;/button&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;button class="deletedata"  &gt;删除&lt;/button&gt;&lt;/td&gt;'</span> +</span><br><span class="line">                <span class="string">'&lt;/tr&gt;'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>) &#123;</span><br><span class="line">            $(<span class="string">'#studentsdata'</span>).html(gg)</span><br><span class="line">            deletedata()</span><br><span class="line">            savadata()</span><br><span class="line">            complete()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="string">'json'</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">getdata()</span><br><span class="line"></span><br><span class="line"><span class="comment">//保存数据</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">savadata</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">".remove"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> $nul = $(<span class="keyword">this</span>).parent().siblings()</span><br><span class="line">        <span class="keyword">var</span> stundents = &#123;</span><br><span class="line">            name: $nul.eq(<span class="number">0</span>).text(),</span><br><span class="line">            age: $nul.eq(<span class="number">1</span>).text(),</span><br><span class="line">            gander: $nul.eq(<span class="number">2</span>).text(),</span><br><span class="line">            tel: $nul.eq(<span class="number">3</span>).text(),</span><br><span class="line">            adress: $nul.eq(<span class="number">4</span>).text(),</span><br><span class="line">        &#125;</span><br><span class="line">        $.post(<span class="string">"/student/adddata"</span>, stundents, <span class="function"><span class="keyword">function</span> (<span class="params">response, success, xhr</span>) </span>&#123;</span><br><span class="line">            getdata()</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//删除数据</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deletedata</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">".deletedata"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url: <span class="string">"/student/deldata"</span>,</span><br><span class="line">            type: <span class="string">'DELETE'</span>,</span><br><span class="line">            data: &#123;<span class="attr">ID</span>:$(<span class="keyword">this</span>).parent().siblings().eq(<span class="number">0</span>).text()&#125;,</span><br><span class="line">            success: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                getdata()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//修改数据</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">complete</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">".amend"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="keyword">this</span>).addClass(<span class="string">"complete"</span>).text(<span class="string">"完成"</span>)</span><br><span class="line">        $(<span class="keyword">this</span>).removeClass(<span class="string">"amend"</span>)</span><br><span class="line">        $(<span class="keyword">this</span>).parent().siblings().attr(<span class="string">"contenteditable"</span>, <span class="literal">true</span>)</span><br><span class="line">        $(<span class="string">".complete"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> $nul = $(<span class="keyword">this</span>).parent().siblings()</span><br><span class="line">            $(<span class="keyword">this</span>).addClass(<span class="string">"amend"</span>).text(<span class="string">"修改"</span>)</span><br><span class="line">            $(<span class="keyword">this</span>).removeClass(<span class="string">"complete"</span>)</span><br><span class="line">            $(<span class="keyword">this</span>).parent().siblings().attr(<span class="string">"contenteditable"</span>, <span class="literal">false</span>)</span><br><span class="line">            <span class="keyword">var</span> stundents = &#123;</span><br><span class="line">                ID: $nul.eq(<span class="number">0</span>).text(),</span><br><span class="line">                name: $nul.eq(<span class="number">1</span>).text(),</span><br><span class="line">                age: $nul.eq(<span class="number">2</span>).text(),</span><br><span class="line">                gander: $nul.eq(<span class="number">3</span>).text(),</span><br><span class="line">                tel: $nul.eq(<span class="number">4</span>).text(),</span><br><span class="line">                adress: $nul.eq(<span class="number">5</span>).text(),</span><br><span class="line">            &#125;</span><br><span class="line">            $.ajax(&#123;</span><br><span class="line">                url: <span class="string">"/student/complete"</span>,</span><br><span class="line">                type: <span class="string">'PUT'</span>,</span><br><span class="line">                data: stundents,</span><br><span class="line">                success: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    getdata()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get" action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            王某人
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="http://q2.qlogo.cn/headimg_dl?dst_uin=1363931801&spec=100" width="140" height="140" alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/09/node-js搭建服务器-1/">node.js搭建服务器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/08/利用gulp与npm创建对网页内容的编辑刷新自动化/">利用gulp与npm创建自动化工具</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/gulp自动化构建工具/">gulp :自动化构建工具</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/npm第三方包管理器/">npm管理器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/Commonjs规范/">Commonjs规范</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/node-js介绍/">node.js简单介绍</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/05/箭头函数/">箭头函数</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/04/JavaScript-简答题/">JavaScript 简答题</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/node-js介绍/">node.js简单介绍</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/gulp自动化构建工具/">gulp :自动化构建工具</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/Commonjs规范/">Commonjs规范</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/09/node-js搭建服务器-1/">node.js搭建服务器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/04/JavaScript-简答题/">JavaScript 简答题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/05/箭头函数/">箭头函数</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/08/利用gulp与npm创建对网页内容的编辑刷新自动化/">利用gulp与npm创建自动化工具</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/01/07/npm第三方包管理器/">npm管理器</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2019/01/09/node-js搭建服务器-1/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2019/01/09/node-js搭建服务器-1/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2019/01/09/node-js搭建服务器-1/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/node-js/" style="font-size: 16.712792575278147px;" class="tag-cloud-link">node.js</a>
+    
+    <a href="/tags/node-js-自动化/" style="font-size: 18.914965222779635px;" class="tag-cloud-link">node.js 自动化</a>
+    
+    <a href="/tags/node-js-模块化/" style="font-size: 11.893882495773436px;" class="tag-cloud-link">node.js  模块化</a>
+    
+    <a href="/tags/jode-js/" style="font-size: 15.219001624363234px;" class="tag-cloud-link">jode.js</a>
+    
+    <a href="/tags/JavaScript/" style="font-size: 10.33727289541616px;" class="tag-cloud-link">JavaScript</a>
+    
+    <a href="/tags/ES6新特性/" style="font-size: 15.6873713617375px;" class="tag-cloud-link">ES6新特性</a>
+    
+    <a href="/tags/nood-js/" style="font-size: 9.36696053952273px;" class="tag-cloud-link">nood.js</a>
+    
+    <a href="/tags/node-js-管理器/" style="font-size: 9.363047979761934px;" class="tag-cloud-link">node.js 管理器</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="www.baidu.com" target="_blank">百度一下</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1363931801&amp;site=qq&amp;menu=yes" target="_blank">QQ</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2019 王某人 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: 'http://pkxw6346q.bkt.clouddn.com/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+</html>
