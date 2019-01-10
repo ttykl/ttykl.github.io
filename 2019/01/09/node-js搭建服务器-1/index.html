@@ -10,7 +10,7 @@
     
     
     
-    <title>node.js搭建服务器 | 后宫佳丽。</title>
+    <title>node.js搭建服务器——前后端分离 | 后宫佳丽。</title>
     <link href="”https://bmmanmyt.github.io“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -177,13 +177,13 @@
         <i class="fa fa-home"></i>
         <a href="https://bmmanmyt.github.io">后宫佳丽。</a>
         >
-        <span>node.js搭建服务器</span>
+        <span>node.js搭建服务器——前后端分离</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/01/09/node-js搭建服务器-1/">node.js搭建服务器</a>
+                <a href="/2019/01/09/node-js搭建服务器-1/">node.js搭建服务器——前后端分离</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -206,7 +206,7 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2019/01/09/node-js搭建服务器-1/">node.js搭建服务器</a>
+                    <a href="/2019/01/09/node-js搭建服务器-1/">node.js搭建服务器——前后端分离</a>
                 </h4>
             </div>
             <p>
@@ -252,7 +252,13 @@
 <p>还是不会不会不会！！！！！！！啊啊啊啊啊啊啊啊</p>
 <p>疯狂报错ing…</p>
 <p>明天继续加油吧！！！</p>
-
+<h2 id="The-Next-Day"><a href="#The-Next-Day" class="headerlink" title="The Next Day"></a>The Next Day</h2><p>欧耶，问题解决了。</p>
+<p>主要的问题出现在后台返回的数据与服务器设置返回格式不一致导致的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">app.use(bodyParser.urlencoded());</span><br><span class="line">app.use(express.static(<span class="string">'public'</span>))<span class="comment">//设置请求头</span></span><br><span class="line">app.use(<span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    res.header(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>)</span><br><span class="line">    res.header(<span class="string">"Content-Type"</span>, <span class="string">"application/json"</span>)</span><br><span class="line">    next()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>因为头部设置的服务器返回数据为JSON格式，但是在删除文件配置中最后返回的数据为字符串</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">router.delete(<span class="string">"/deldata"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    fs.readFile(path.join(__dirname, STUNENTSFILE), <span class="string">"utf8"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">        students = <span class="built_in">JSON</span>.parse(data)</span><br><span class="line">        <span class="keyword">let</span> deleteindex = <span class="number">-1</span></span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">        students.forEach(<span class="function">(<span class="params">student, index</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (student.ID == req.body.ID) &#123;</span><br><span class="line">                deleteindex = index</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">if</span> (deleteindex &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            students.splice(deleteindex, <span class="number">1</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        fs.writeFile(path.join(__dirname, STUNENTSFILE), <span class="built_in">JSON</span>.stringify(students, <span class="literal">null</span>, <span class="number">4</span>), <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">            res.status(<span class="number">200</span>).send(<span class="string">"删除成功"</span>) <span class="comment">//错误出现在这里。。。</span></span><br><span class="line">            res.status(<span class="number">200</span>).send(&#123;<span class="attr">message</span>:<span class="string">"删除成功"</span>&#125;) <span class="comment">//正确的返回格式</span></span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>但是,不知道为什么在修改数据中返回数据为字符串的时候回调函数还是执行了。</p>
+<h3 id="总之-服务器设置的返回格式一定一定要和服务器具体配置中返回的格式想用才能让回调函数正确执行。"><a href="#总之-服务器设置的返回格式一定一定要和服务器具体配置中返回的格式想用才能让回调函数正确执行。" class="headerlink" title="总之,服务器设置的返回格式一定一定要和服务器具体配置中返回的格式想用才能让回调函数正确执行。"></a>总之,服务器设置的返回格式一定一定要和服务器具体配置中返回的格式想用才能让回调函数正确执行。</h3>
     </div>
 </article>
 
@@ -299,7 +305,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/09/node-js搭建服务器-1/">node.js搭建服务器</a>
+                    <a href="/2019/01/09/node-js搭建服务器-1/">node.js搭建服务器——前后端分离</a>
                 </span>
             </li>
             
@@ -405,7 +411,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/01/09/node-js搭建服务器-1/">node.js搭建服务器</a>
+                    <a href="/2019/01/09/node-js搭建服务器-1/">node.js搭建服务器——前后端分离</a>
                 </span>
             </li>
             
@@ -438,21 +444,21 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/node-js-模块化/" style="font-size: 16.437508410046277px;" class="tag-cloud-link">node.js  模块化</a>
+    <a href="/tags/node-js-模块化/" style="font-size: 17.992482801201316px;" class="tag-cloud-link">node.js  模块化</a>
     
-    <a href="/tags/node-js-自动化/" style="font-size: 16.680264413196195px;" class="tag-cloud-link">node.js 自动化</a>
+    <a href="/tags/node-js-自动化/" style="font-size: 9.14047056369032px;" class="tag-cloud-link">node.js 自动化</a>
     
-    <a href="/tags/node-js/" style="font-size: 13.453005923968977px;" class="tag-cloud-link">node.js</a>
+    <a href="/tags/node-js/" style="font-size: 10.650237045304333px;" class="tag-cloud-link">node.js</a>
     
-    <a href="/tags/node-js-管理器/" style="font-size: 17.706141643241246px;" class="tag-cloud-link">node.js 管理器</a>
+    <a href="/tags/node-js-管理器/" style="font-size: 19.80732882362748px;" class="tag-cloud-link">node.js 管理器</a>
     
-    <a href="/tags/nood-js/" style="font-size: 19.577662296711846px;" class="tag-cloud-link">nood.js</a>
+    <a href="/tags/nood-js/" style="font-size: 16.390766730687577px;" class="tag-cloud-link">nood.js</a>
     
-    <a href="/tags/ES6新特性/" style="font-size: 9.394963204663702px;" class="tag-cloud-link">ES6新特性</a>
+    <a href="/tags/ES6新特性/" style="font-size: 8.18199012161574px;" class="tag-cloud-link">ES6新特性</a>
     
-    <a href="/tags/JavaScript/" style="font-size: 8.189508224504456px;" class="tag-cloud-link">JavaScript</a>
+    <a href="/tags/JavaScript/" style="font-size: 17.723208629475263px;" class="tag-cloud-link">JavaScript</a>
     
-    <a href="/tags/jode-js/" style="font-size: 8.653955290218885px;" class="tag-cloud-link">jode.js</a>
+    <a href="/tags/jode-js/" style="font-size: 18.372252220470397px;" class="tag-cloud-link">jode.js</a>
     
 </div>
                 
